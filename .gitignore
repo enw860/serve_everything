@@ -8,6 +8,7 @@ lerna-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+package-lock.json
 
 # Runtime data
 pids
@@ -103,8 +104,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Database files
 server/database/db
-package-lock.json
 
+# Mac DS_Store files
 .DS_Store
 */.DS_Store
