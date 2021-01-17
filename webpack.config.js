@@ -10,7 +10,6 @@ const outputDirectory = "dist";
 
 module.exports = {
   entry: {
-    "babel-polyfill": "babel-polyfill",
     main: "./client/main/index.js",
     "uiDemo-vue": "./client/uiDemo-vue/index.js",
     "uiDemo-react": "./client/uiDemo-react/index.js"
