@@ -2,12 +2,9 @@ import React, { Component, createRef } from 'react';
 import { connect } from "react-redux";
 import { getCurrentUser, userLogin } from "../store/actions/user";
 
-import Stopwatch from "./tookit/Stopwatch";
-import CurrentTime from "./tookit/CurrentTime";
-import Tooltip from "./tookit/tooltip";
-
-import '../layout/App.less';
-import '../layout/utilities/layout.less';
+import Stopwatch from "../../basic_controls/react/infomation/Stopwatch";
+import CurrentTime from "../../basic_controls/react/infomation/CurrentTime";
+import Tooltip from "../../basic_controls/react/infomation/tooltip";
 
 class App extends Component {
   constructor(props) {
@@ -68,10 +65,10 @@ class App extends Component {
           <input ref="_password" type="password" placeholder="password"/>
           <input type="submit" value="Log In"/>
         </form>
-        <div className="flex-row-space-around flex-align-start">
+        <div className="HLayout flow-center align-center">
           <Stopwatch ref="_timer1" format="hh:mm:ss" displayAs="clock" refreshRate={100} hideControls={false}/>
         </div>
-        <div className="flex-row-space-evenly">
+        <div className="HLayout flow-between">
           <button onClick={this.tempClick}>show</button>
           <button onClick={() => this.refs._tooltip.hide()}>hide</button>
         </div>

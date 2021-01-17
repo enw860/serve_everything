@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CircleRanger from "./CircleRanger";
 
-import "../../layout/toolkit/timers.less";
-import "../../layout/utilities/layout.less";
+import "../../style/style.less";
+import "../../style/toolkit/timer.less";
 
 /*
 * @instance
@@ -131,12 +131,12 @@ export default class Clock extends Component {
     var date = new Date(value);
 
     return (
-      <div className="flex-col-center timestr-wrapper">
-        <div className="flex-row-center" style={{fontSize: fontSize}}>{Object.keys(time).reduce((timeStr, term) => {
+      <div className="VLayout flow-center timestr-wrapper">
+        <div className="HLayout flow-center" style={{fontSize: fontSize}}>{Object.keys(time).reduce((timeStr, term) => {
             return (timeStr.indexOf(term) > -1) ? timeStr.replace(term, time[term].displayValue) : timeStr;
           }, format)}</div>
 
-        {showingDate && <div className="flex-row-center" style={{fontSize: fontSize}}>{date.toDateString()}</div>}
+        {showingDate && <div className="HLayout flow-center" style={{fontSize: fontSize}}>{date.toDateString()}</div>}
       </div>
     );
   }

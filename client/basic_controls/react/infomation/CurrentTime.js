@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Clock from "./Clock";
 
-import "../../layout/utilities/layout.less";
+import "../../style/style.less";
 
 /*
 * @instance
@@ -54,7 +54,7 @@ export default class CurrentTime extends Component {
   render() {
     !this.interval && this._proto.run();
     return (
-      <div className="flex-col-center">
+      <div className="HLayout flow-center">
         <Clock time={this.state.time} timezoneOffset={this.state.timezoneOffset} clockSize={200} format={this.props.format} mode={this.props.mode}/>
       </div>
     );

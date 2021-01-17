@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import "../../layout/toolkit/ranger.less";
-import "../../layout/utilities/layout.less";
+// import "../../style/toolkit/ranger.less";
+import "../../style/style.less";
 
 /*
 * @instance
@@ -251,10 +251,10 @@ export default class CircleRanger extends Component {
     var { thumbIcon, hideThumb, muteRanger } = this.props;
 
     return (
-      <div className="flex-center-center">
+      <div className="HLayout flow-center align-center">
         <div ref="_slider_wrapper" style={this._proto.buildTrackStyle()}></div>
-        {!hideThumb && <div className="flex-col-space-between" style={this._proto.buildThumbTrackStyle()} onMouseDown={this.rangerDown} onMouseUp={this.rangerRelease}>
-          <div className={"flex-row-center flex-align-center" + muteRanger? "" : "ranger-thumb"} style={this._proto.buildThumbStyle()}>
+        {!hideThumb && <div className="VLayout flow-between" style={this._proto.buildThumbTrackStyle()} onMouseDown={this.rangerDown} onMouseUp={this.rangerRelease}>
+          <div className={"HLayout flow-center align-center" + muteRanger? "" : "ranger-thumb"} style={this._proto.buildThumbStyle()}>
             <i className={`fa fa-xs ${thumbIcon}`}/>
           </div>
         </div>}

@@ -1,5 +1,4 @@
-@import "../utilities/layout";
-@import "../utilities/theme";
+@import "../theme/theme.less";
 
 .stopwatch-wrapper {
   padding: 10px 20px;
@@ -18,15 +17,16 @@
 }
 
 .timer-caption-XL {
-  font-size: @size-xl;
-  font-weight: @font-bold;
+  font-size: @font-size-xl;
+  font-weight: 600;
 }
 
 
 .clock-background {
-  background-color: #f5f0e6;
-  border-radius: @heavy-radius;
+  background-color: @primary-020;
+  border-radius: 50%;
   margin: 10px;
+  position: relative;
 
   .clock-center {
     height: 8%;
@@ -34,7 +34,7 @@
     top: 46%;
     left: 46%;
     background-color: black;
-    border-radius: @heavy-radius;
+    border-radius: 50%;
     z-index: 10;
     position: absolute;
   }

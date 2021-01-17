@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Clock from "./Clock";
 
-import "../../layout/toolkit/timers.less";
-import "../../layout/utilities/layout.less";
+import "../../style/toolkit/timer.less";
+import "../../style/style.less";
 
 /*
 * @instance
@@ -73,7 +73,7 @@ export default class Stopwatch extends Component {
     var showControls = Object.keys(buttons).reduce((show, val) => show || buttons[val].visible, false);
 
     return showControls && (
-      <div className="flex-row-space-between stopwatch-control-set" style={{width: "100%"}}>
+      <div className="HLayout flow-between stopwatch-control-set" style={{width: "100%"}}>
         {Object.keys(buttons).map(key => {
           return buttons[key].visible && <button key={"btn_"+key} onClick={this[key]}>{buttons[key].name}</button>
         })}
@@ -87,12 +87,12 @@ export default class Stopwatch extends Component {
     if (!lapList || lapList.length < 1) return;
 
     return (
-      <div className="flex-col stopwatch-lap-list-wrapper">
-        <div className="flex-row-left timer-caption-XL">Lap List</div>
-        <ol type="2" className="flex-col-left stopwatch-lap-list">
+      <div className="VLayout stopwatch-lap-list-wrapper">
+        <div className="HLayout flow-left timer-caption-XL">Lap List</div>
+        <ol type="2" className="VLayout flow-left stopwatch-lap-list">
           {lapList.map((lap, index) => {
             return (
-              <li className="flex-row-left" key={"lap"+index}>
+              <li className="HLayout flow-left" key={"lap"+index}>
                 <Clock time={lap} format={this.props.format} mode={10}/>
               </li>
             )
@@ -246,7 +246,7 @@ export default class Stopwatch extends Component {
 
   render() {
     return (
-      <div className="flex-col-center stopwatch-wrapper">
+      <div className="VLayout flow-center stopwatch-wrapper">
         <Clock time={this.getTimeRecords().total} clockSize={200} format={this.props.format} mode={9}/>
         {this.displayControl()}
         {this.displayLapList()}

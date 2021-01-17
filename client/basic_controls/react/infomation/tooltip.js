@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import "../../layout/utilities/layout.less";
-import "../../layout/toolkit/tooltip.less";
+import "../../style/style.less";
+import "../../style/toolkit/tooltip.less";
 
 /*
 * @instance
