@@ -1,9 +1,11 @@
 module.exports = {
   "presets": [
     "@babel/preset-env",
-    "@vue/cli-plugin-babel/preset"
+    "@vue/cli-plugin-babel/preset",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 };

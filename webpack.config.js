@@ -12,11 +12,11 @@ module.exports = {
   entry: {
     "babel-polyfill": "babel-polyfill",
     main: "./client/main/index.js",
-    uiDemo: "./client/uiDemo/index.js",
-    example2: "./client/example2/index.js"
+    "uiDemo-vue": "./client/uiDemo-vue/index.js",
+    "uiDemo-react": "./client/uiDemo-react/index.js"
   },
   resolve: {
-    extensions: [".vue", ".js", ".less", ".css"]
+    extensions: [".vue", ".js", ".jsx", ".less", ".css"]
   },
   output: {
     path: path.join(__dirname, outputDirectory),
@@ -37,14 +37,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
-      filename: "uiDemo/index.html",
-      chunks: ["uiDemo"]
+      filename: "uiDemo-vue/index.html",
+      chunks: ["uiDemo-vue"]
     }),
     new HtmlWebpackPlugin({
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
-      filename: "example2/index.html",
-      chunks: ["example2"]
+      filename: "uiDemo-react/index.html",
+      chunks: ["uiDemo-react"]
     })
   ],
   optimization: {
@@ -71,7 +71,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       }, {
