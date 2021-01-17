@@ -97,16 +97,16 @@
 import WidgitDemo from "../components/WidgitDemo.vue";
 import ControlDemoTemplate from "../views/ControlDemoTemplate.vue";
 
-import Avatar from "../../basic_controls/vue/infomational/Avatar.vue";
+import Avatar from "../../controls/vue/infomational/Avatar.vue";
 
-import DisplayText from "../../basic_controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../basic_controls/vue/Wrapper/LabelWrapper.vue";
-import SingleSelect from "../../basic_controls/vue/inputs/SingleSelect.vue";
-import InputText from "../../basic_controls/vue/inputs/InputText.vue";
-import ColorInput from "../../basic_controls/vue/inputs/ColorInput.vue";
-import Toggle from "../../basic_controls/vue/inputs/Toggle.vue";
-import HTMLTextLoader from "../../basic_controls/vue/infomational/HTMLTextLoader.vue";
-import Table from "../../basic_controls/vue/infomational/Table.vue";
+import DisplayText from "../../controls/vue/infomational/DisplayText.vue";
+import LabelWrapper from "../../controls/vue/Wrapper/LabelWrapper.vue";
+import SingleSelect from "../../controls/vue/inputs/SingleSelect.vue";
+import InputText from "../../controls/vue/inputs/InputText.vue";
+import ColorInput from "../../controls/vue/inputs/ColorInput.vue";
+import Toggle from "../../controls/vue/inputs/Toggle.vue";
+import HTMLTextLoader from "../../controls/vue/infomational/HTMLTextLoader.vue";
+import Table from "../../controls/vue/infomational/Table.vue";
 
 export default {
   name: "AvatarDemo",

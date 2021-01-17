@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../../basic_controls/style/theme/theme.less";
+@import "../../controls/style/theme/theme.less";
 
 .PageContentHeader {
   width: 100%;
@@ -101,9 +101,9 @@ import store from "../store/store";
 import Navigator from "../components/Navigator.vue";
 import MenuBar from "../components/MenuBar.vue";
 
-import Link from "../../basic_controls/vue/infomational/Link.vue";
-import DisplayText from "../../basic_controls/vue/infomational/DisplayText.vue";
-import Button from "../../basic_controls/vue/infomational/Button.vue";
+import Link from "../../controls/vue/infomational/Link.vue";
+import DisplayText from "../../controls/vue/infomational/DisplayText.vue";
+import Button from "../../controls/vue/infomational/Button.vue";
 
 import AvatarDemo from "./Avatar.vue";
 import BadgeDemo from "./Badge.vue";

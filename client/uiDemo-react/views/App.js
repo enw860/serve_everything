@@ -2,9 +2,9 @@ import React, { Component, createRef } from 'react';
 import { connect } from "react-redux";
 import { getCurrentUser, userLogin } from "../store/actions/user";
 
-import Stopwatch from "../../basic_controls/react/infomation/Stopwatch";
-import CurrentTime from "../../basic_controls/react/infomation/CurrentTime";
-import Tooltip from "../../basic_controls/react/infomation/tooltip";
+import Stopwatch from "../../controls/react/infomation/Stopwatch";
+import CurrentTime from "../../controls/react/infomation/CurrentTime";
+import Tooltip from "../../controls/react/infomation/tooltip";
 
 class App extends Component {
   constructor(props) {

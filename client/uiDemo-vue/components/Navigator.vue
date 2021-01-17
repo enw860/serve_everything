@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../../basic_controls/style/theme/theme.less";
+@import "../../controls/style/theme/theme.less";
 
 .Nav-slide > .SlideoutContent {
   background-color: @grey-100;
@@ -42,9 +42,9 @@
 <script>
 import store from "../store/store";
 import Logo from "./Logo.vue";
-import Slideout from "../../basic_controls/vue/layout/Slideout.vue";
-import Button from "../../basic_controls/vue/infomational/Button.vue";
-import Dropdown from "../../basic_controls/vue/Wrapper/Dropdown.vue";
+import Slideout from "../../controls/vue/layout/Slideout.vue";
+import Button from "../../controls/vue/infomational/Button.vue";
+import Dropdown from "../../controls/vue/Wrapper/Dropdown.vue";
 
 export default {
   name: "Navigator",

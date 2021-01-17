@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../../basic_controls/style/theme/theme.less";
+@import "../../controls/style/theme/theme.less";
 
 .MenuBar {
   width: 100%;
@@ -45,8 +45,8 @@
 
 <script>
 import store from "../store/store";
-import Button from "../../basic_controls/vue/infomational/Button.vue";
-import InputText from "../../basic_controls/vue/inputs/InputText.vue";
+import Button from "../../controls/vue/infomational/Button.vue";
+import InputText from "../../controls/vue/inputs/InputText.vue";
 
 export default {
   name: "MenuBar",

@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../../basic_controls/style/theme/theme.less";
+@import "../../controls/style/theme/theme.less";
 
 .widgitDemoControl {
   width: 100%;

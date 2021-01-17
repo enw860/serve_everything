@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import MaskLayer from "../basic_controls/vue/layout/MaskLayer";
+import MaskLayer from "../controls/vue/layout/MaskLayer";
 import PageContent from "./views/PageContent";
 
 export default {
