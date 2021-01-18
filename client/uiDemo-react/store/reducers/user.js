@@ -2,25 +2,10 @@ function onGetUserSuccess(state, action) {
   let fetchedUser = (action && action.payload) ? action.payload : {};
   fetchedUser = fetchedUser.detail;
 
-  const {currentUser = {}} = state.user;
-  if (!!fetchedUser.username && (currentUser.username === fetchedUser.username)) {
-    delete fetchedUser.username;
-    return Object.assign({}, state, {
-      user: {
-        currentUser: {
-          ...currentUser,
-          detail: fetchedUser
-        },
-        fetchedUser
-      },
-      error: {}
-    });
-  } else {
-    return Object.assign({}, state, {
-      user: { fetchedUser },
-      error: {}
-    });
-  }
+  return Object.assign({}, state, {
+    user: { fetchedUser },
+    error: {}
+  });
 }
 
 function onCreateUserSuccess(state, action) {

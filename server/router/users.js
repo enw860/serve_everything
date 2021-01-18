@@ -100,10 +100,15 @@ router.post("/login", (req, res) => {
             req.session.username = username;
             req.session.login_secrete = msg.login_secrete;
             
+            delete msg.status;
+            if (!withSecrete) {
+                delete msg.login_secrete;
+            }
+
             res.send({
                 statusCode: res.statusCode,
                 message: "Success",
-                detail: !!withSecrete ? {username, login_secrete: msg.login_secrete} : {username}
+                detail: msg
             });
         }
     });

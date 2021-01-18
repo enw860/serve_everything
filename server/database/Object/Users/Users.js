@@ -185,8 +185,9 @@ class User {
             });
 
             db.get(`
-                SELECT faltyAccess
-                FROM user_account
+                SELECT faltyAccess, profile.*
+                FROM ${UserAccount.schema.tableName} account
+                JOIN ${UserProfile.schema.tableName} profile
                 WHERE username=?
             `, [username], (err, row) => {
                 if (err) {
@@ -196,7 +197,8 @@ class User {
                 } else if (row.faltyAccess >= 3) {
                     callback(DBError.LOCKED_ACCOUNT);
                 } else if (row.faltyAccess === 0) {
-                    callback(null, {status: "Success!", login_secrete});
+                    delete row.faltyAccess;
+                    callback(null, {status: "Success!", username, login_secrete, detail: row});
                 } else {
                     callback(DBError.FAILED_AUTH);
                 }

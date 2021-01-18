@@ -24,11 +24,10 @@ class App extends Component {
 
   printUserDetail(user) {
     const {detail = {}} = user;
-    
     return detail && (
       <ul>
         {Object.keys(detail).map(field => {
-          return (<li><span>{field}</span>: <span>{detail[field] || "unavailable"}</span></li>)
+          return (<li key={field}><span>{field}</span>: <span>{detail[field] || "unavailable"}</span></li>)
         })}
       </ul>
     )
@@ -55,7 +54,6 @@ class App extends Component {
           <input ref="_password" type="password" placeholder="password" value="Lionel_0120."/>
           <input type="submit" value="Log In"/>
         </form>
-        <button onClick={this.fetchUserInfo}>Click</button>
         {this.printUserDetail(user)}
       </div>
     );
