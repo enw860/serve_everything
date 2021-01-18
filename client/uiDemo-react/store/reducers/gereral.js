@@ -1,22 +1,17 @@
-import {
-  REQUEST_FAILURE,
-  COUGHT_FAILURE
-} from "../const/general";
-
 function onCoughtFailure(state, action) {
   return Object.assign({}, state, {
-    lastCall:{
+    error: {
       state: false,
-      reason: (action && action.payload)? action.payload : {}
+      data: (action && action.payload)? action.payload : {}
     }
   });
 }
 
 function onRequestFailure(state, action) {
   return Object.assign({}, state, {
-    lastCall:{
+    error: {
       state: false,
-      reason: (action && action.payload)? action.payload : {}
+      data: (action && action.payload)? action.payload : {}
     }
   });
 }

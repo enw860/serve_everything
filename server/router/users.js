@@ -103,7 +103,7 @@ router.post("/login", (req, res) => {
             res.send({
                 statusCode: res.statusCode,
                 message: "Success",
-                detail: !!withSecrete ? {login_secrete: msg.login_secrete} : {}
+                detail: !!withSecrete ? {username, login_secrete: msg.login_secrete} : {username}
             });
         }
     });
@@ -154,8 +154,8 @@ router.get("/info/:username", (req, res) => {
 });
 
 // get user's information by providing login_secrete
-router.post("/info/:username", (req, res) => {
-    const {username} = req.params;
+router.post("/info", (req, res) => {
+    const {username} = req.body;
     const login_secrete = req.body.login_secrete || req.session.login_secrete || "";
 
     Users.fetch({username, login_secrete}, (err, info) => {
@@ -204,7 +204,6 @@ router.put("/update", (req, res) => {
     Users.update({username, login_secrete, changes}, (err, msg) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
-                statusCode: err.status,
                 message: err.message
             });
         } else {

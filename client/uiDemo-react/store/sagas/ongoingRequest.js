@@ -6,7 +6,9 @@ function* requestHandlerSaga(action){
 
   try {
     var data = yield call(action.action, action.payload);
-    var type = data.hasOwnProperty("message")? action.onError : action.onSuccess;
+    
+    const {statusCode} = data;
+    var type = (statusCode === 200) ? action.onSuccess : action.onError;
     
     yield put({ type: type, payload: data});
   } catch (error) {

@@ -1,74 +1,78 @@
-import {
-  GET_CUR_USER_SUCCESS,
-  CREATE_USER_SUCCESS,
-  USER_LOGIN_SUCCESS,
-  USER_LOGOUT_SUCCESS,
-  CHANGE_USER_INFO_SUCCESS,
-  CHANGE_USER_PASSWORD_SUCCESS
-} from "../const/user";
+function onGetUserSuccess(state, action) {
+  let fetchedUser = (action && action.payload) ? action.payload : {};
+  fetchedUser = fetchedUser.detail;
 
-function onGetCurrentUserSuccess(state, action) {
-  return Object.assign({}, state, {
-    user: (action && action.payload)? action.payload:{},
-    lastCall:{
-      state: true,
-      reason: {}
-    }
-  });
+  const {currentUser = {}} = state.user;
+  if (!!fetchedUser.username && (currentUser.username === fetchedUser.username)) {
+    delete fetchedUser.username;
+    return Object.assign({}, state, {
+      user: {
+        currentUser: {
+          ...currentUser,
+          detail: fetchedUser
+        },
+        fetchedUser
+      },
+      error: {}
+    });
+  } else {
+    return Object.assign({}, state, {
+      user: { fetchedUser },
+      error: {}
+    });
+  }
 }
 
 function onCreateUserSuccess(state, action) {
   return Object.assign({}, state, {
     user: (action && action.payload)? action.payload:{},
-    lastCall:{
-      state: true,
-      reason: {}
-    }
+    error: {}
   });
 }
 
 function onLoginSuccess(state, action) {
+  let user = (action && action.payload) ? action.payload : {};
+  user = user.detail;
+
   return Object.assign({}, state, {
-    user: (action && action.payload)? action.payload:{},
-    lastCall:{
-      state: true,
-      reason: {}
-    }
+    user: {
+      currentUser: user
+    },
+    error: {}
   });
 }
 
 function onLogoutSuccess(state, action) {
   return Object.assign({}, state, {
-    lastCall:{
-      state: true,
-      reason: {}
-    }
+    user: {},
+    error: {}
   });
 }
 
 function onChangeUserInfoSuccess(state, action) {
   return Object.assign({}, state, {
-    lastCall:{
-      state: true,
-      reason: {}
-    }
+    error: {}
   });
 }
 
 function onChangeUserPasswordSuccess(state, action) {
   return Object.assign({}, state, {
-    lastCall:{
-      state: true,
-      reason: {}
-    }
+    error: {}
+  });
+}
+
+function onFieldValidationSuccess(state, action) {
+  return Object.assign({}, state, {
+    error: {}
   });
 }
 
 export const userReducerRoot = {
-  GET_CUR_USER_SUCCESS: onGetCurrentUserSuccess,
+  GET_USER_SUCCESS: onGetUserSuccess,
   CREATE_USER_SUCCESS: onCreateUserSuccess,
   USER_LOGIN_SUCCESS: onLoginSuccess,
   USER_LOGOUT_SUCCESS: onLogoutSuccess,
   CHANGE_USER_INFO_SUCCESS: onChangeUserInfoSuccess,
-  CHANGE_USER_PASSWORD_SUCCESS: onChangeUserPasswordSuccess
+  CHANGE_USER_PASSWORD_SUCCESS: onChangeUserPasswordSuccess,
+  FIELD_VALIDATATION_SUCCESS: onFieldValidationSuccess
 }

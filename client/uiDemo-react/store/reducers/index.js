@@ -2,9 +2,7 @@ import { userReducerRoot } from "./user";
 import { generalReducerRoot } from "./gereral";
 
 const initState = {
-  user: {},
-  workspace: {},
-  lastCall:{}
+  user: {}
 };
 
 const reducers = Object.assign({}, userReducerRoot, generalReducerRoot);

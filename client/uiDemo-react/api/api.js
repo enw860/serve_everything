@@ -34,25 +34,11 @@ function handleFetchResponse(resp) {
   throw Error(resp.statusText);
 }
 
-// admin endpoints
-export const getAllUsers = data => sendRequest("GET", "/admin/user/all", data);
-export const getAllWorkspaces = data => sendRequest("GET", "/admin/workspace/all", data);
-export const getAllOwnerships = data => sendRequest("GET", "/admin/ownership/all", data);
-
 // user endpoints
-export const getCurUserInfo = data => sendRequest("GET", "/user/cur", data);
-export const postLogin = data => sendRequest("POST", "/user/login", data);
-export const getLogout = data => sendRequest("GET", "/user/logout", data);
-export const postCreateUser = data => sendRequest("POST", "/user/create", data);
-export const updatePassword = data => sendRequest("PUT", "/user/changePassword", data);
-export const updateInfo = data => sendRequest("PUT", "/user/changeInfo", data);
-
-// workspace endpoints
-export const getUserWorkspace = data => sendRequest("GET", "/workspace/", data);
-export const postCreateWorkspace = data => sendRequest("POST", "/workspace/create", data);
-export const putUpdateFilename = data => sendRequest("PUT", "/workspace/updetaFilename", data);
-export const deleteWorkspace = data => sendRequest("DELETE", "/workspace/delete", data);
-export const getOwnershipsOfWorkspace = data => sendRequest("GET", "/workspace/ownership", data);
-export const postCreateOwnership = data => sendRequest("POST", "/workspace/ownership/create", data);
-export const putShiftOwnership = data => sendRequest("PUT", "/workspace/ownership/shift", data);
-export const deleteWorkspaceOwnership = data => sendRequest("DELETE", "/workspace/ownership/delete", data);
+export const fetchUser = data => sendRequest("POST", "/api/users/info", data);
+export const login = data => sendRequest("POST", "/api/users/login", data);
+export const logout = data => sendRequest("POST", "/api/users/logout", data);
+export const createUser = data => sendRequest("POST", "/api/users/create", data);
+export const resetPassword = data => sendRequest("POST", "/api/user/resetPassword", data);
+export const updateInfo = data => sendRequest("PUT", "/api/user/update", data);
+export const validate = data => sendRequest("POST", "/api/user/validate", data);
