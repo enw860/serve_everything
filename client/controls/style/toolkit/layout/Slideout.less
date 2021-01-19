@@ -1,0 +1,59 @@
+@import "../../theme/theme.less";
+
+.Slideout {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+
+    .SlideoutContent {
+        position: absolute;
+        top: 0;
+        max-width: max-content;
+        height: 100vh;
+        background-color: @white;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+
+        &.slide-left {
+            left: -100%;
+            -webkit-animation: slideRight 0.5s forwards;
+            animation: slideRight 0.5s forwards;
+        }
+
+        &.slide-right {
+            right: -100%;
+            -webkit-animation: slideLeft 0.5s forwards;
+            animation: slideLeft 0.5s forwards;
+        }
+
+        @-webkit-keyframes slideRight {
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes slideRight {
+            100% {
+                left: 0;
+            }
+        }
+
+        @-webkit-keyframes slideLeft {
+            100% {
+                right: 0;
+            }
+        }
+
+        @keyframes slideLeft {
+            100% {
+                right: 0;
+            }
+        }
+    }
+}
