@@ -97,7 +97,7 @@ router.post("/login", (req, res) => {
                 message: err.message
             });
         } else {
-            req.session.username = username;
+            req.session.username = msg.username;
             req.session.login_secrete = msg.login_secrete;
             
             delete msg.status;

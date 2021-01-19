@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { normalizeInput } from "../utilities";
+import { normalizeInput } from "../../util/utilities";
 import Link from "./Link.vue";
 
 export default {

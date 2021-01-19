@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { normalizeInput, generateComponentID } from "../utilities";
+import { normalizeInput, generateComponentID } from "../../util/utilities";
 import "../../style/toolkit/inputs.less";
 
 export default {

@@ -177,7 +177,7 @@
 </template>
 
 <script>
-import { normalizeInput, randDarkColor } from "../utilities.js";
+import { normalizeInput, randDarkColor } from "../../util/utilities";
 
 export default {
   name: "Avatar",

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { normalizeInput } from "../utilities";
+import { normalizeInput } from "../../util/utilities";
 export default {
   name: "DivideLine",
   data: function() {

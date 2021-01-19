@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { generateComponentID, normalizeInput } from "../utilities";
+import { generateComponentID, normalizeInput } from "../../util/utilities";
 import "../../style/toolkit/inputs.less";
 
 export default {

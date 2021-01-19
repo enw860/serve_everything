@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { normalizeInput } from "../utilities.js";
+import { normalizeInput } from "../../util/utilities";
 
 export default {
   name: "Badge",

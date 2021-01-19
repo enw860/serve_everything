@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { normalizeInput } from "../utilities";
+import { normalizeInput } from "../../util/utilities";
 import "../../style/toolkit/inputs.less";
 import Button from "../infomational/Button.vue";
 

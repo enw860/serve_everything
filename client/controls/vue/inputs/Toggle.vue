@@ -157,7 +157,7 @@
 </template>
 
 <script>
-import { normalizeInput, generateComponentID } from "../utilities";
+import { normalizeInput, generateComponentID } from "../../util/utilities";
 
 export default {
   name: "Toggle",
