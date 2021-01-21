@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import "../../style/toolkit/ranger.less";
+import "../../style/toolkit/ranger.less";
 import "../../style/style.less";
 
 /*
