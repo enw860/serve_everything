@@ -134,8 +134,8 @@ export default {
 		thumbTrackStyle: function () {
 			return {
 				width: `${this.thumbRadius * 2}px`,
-				height: `${this.radius + this.thumbRadius}px`,
-				top: `${0 - this.thumbRadius}px`,
+				height: `${this.radius + this.thumbRadius * 0.85}px`,
+				top: `${0 - this.thumbRadius * 0.85}px`,
 				transform: `rotate(${360 * this.inputValue * 0.01}deg)`,
 				position: "absolute",
 				transformOrigin: "bottom center",
