@@ -1,0 +1,81 @@
+@import "../../theme/theme.less";
+
+.HTMLTextLoaderWrapper {
+	width: 100%;
+	overflow-x: auto;
+	background-color: @grey-090;
+}
+
+.HTMLTextLoader {
+	color: @white;
+
+	.Line {
+		line-height: 24px;
+		display: flex;
+		flex-direction: row;
+		margin: 0;
+		color: @grey-030;
+
+		&:hover {
+			background-color: @grey-070;
+		}
+
+		&.hide {
+			display: none;
+		}
+
+		&.expanded:hover > .Line-Control:after {
+			content: "\f0da";
+		}
+
+		&.collasped {
+			background-color: @grey-070;
+			border-bottom: 1px solid @info-030;
+
+			& > .Line-Control:after {
+				content: "\f0d7";
+			}
+		}
+
+		&.expandible > .Line-Control {
+			cursor: pointer;
+		}
+
+		.Line-Index {
+			min-width: 30px;
+			text-align: center;
+			background-color: @grey-080;
+		}
+
+		.Line-Control {
+			min-width: 24px;
+			text-align: center;
+		}
+
+		.Line-Code {
+			.HTMLTag {
+				font-style: normal;
+				color: @primary-050;
+			}
+
+			.HTMLAttribute {
+				font-style: normal;
+				color: @success-040;
+			}
+
+			.HTMLStatue {
+				font-style: normal;
+				color: @danger-050;
+			}
+
+			.HTMLComment {
+				font-style: normal;
+				color: @grey-060;
+			}
+
+			.spacer {
+				margin-right: 4px;
+			}
+		}
+	}
+}

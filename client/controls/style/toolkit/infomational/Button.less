@@ -1,0 +1,100 @@
+@import "../../theme/theme.less";
+
+.Button {
+	outline: none;
+	border: none;
+	width: max-content;
+
+	// Size
+	&.size-small,
+	&.size-normal {
+		padding: @margin-sm;
+
+		> *:not(:first-child) {
+			margin-left: @margin-sm;
+		}
+	}
+
+	&.size-large,
+	&.size-xlarge {
+		padding: @margin-rg;
+
+		> *:not(:first-child) {
+			margin-left: @margin-sm;
+		}
+	}
+
+	// cursoe and role
+	&[role="button"] {
+		cursor: pointer;
+
+		// interaction
+		&:focus,
+		&:active {
+			outline: 2px solid @primary-060;
+			outline-offset: -2px;
+		}
+
+		&.disabled {
+			background-color: @grey-020 !important;
+			color: @grey-050 !important;
+			cursor: not-allowed !important;
+			outline: none !important;
+			box-shadow: none !important;
+		}
+	}
+
+	&[role="img"] {
+		cursor: initial;
+	}
+
+	// style themes
+	&.btn-primary {
+		.setBtnStyle(@primary-060, @primary-070, @primary-080, @white, @white);
+	}
+
+	&.btn-success {
+		.setBtnStyle(@success-060, @success-070, @success-080, @white, @white);
+	}
+
+	&.btn-danger {
+		.setBtnStyle(@danger-070, @danger-080, @danger-090, @white, @white);
+	}
+
+	&.btn-info {
+		.setBtnStyle(@info-040, @info-050, @info-060, @white, @white);
+	}
+
+	&.btn-dark {
+		.setBtnStyle(@grey-100, @grey-090, @grey-080, @white, @white);
+	}
+
+	&.btn-white {
+		.setBtnStyle(@white, @grey-010, @grey-020, @grey-100, @grey-100);
+	}
+
+	&.btn-transparent {
+		.setBtnStyle(transparent, transparent, transparent, @grey-100, @grey-100);
+	}
+}
+
+// mixin functions
+.setBtnStyle(@background, @background-dark, @background-darker, @color, @color-alter) {
+	color: @color;
+	background-color: @background;
+
+	&[role="button"] {
+		&:focus {
+			background-color: @background;
+		}
+
+		&:hover {
+			background-color: @background-dark;
+		}
+
+		&:active {
+			color: @color-alter;
+			background-color: @background-darker;
+		}
+	}
+}
