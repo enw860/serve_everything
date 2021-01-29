@@ -113,3 +113,5 @@ server/database/db
 
 # formater settings
 .prettierrc.json
+
+.vscode
