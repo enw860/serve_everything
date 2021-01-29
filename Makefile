@@ -3,11 +3,11 @@
 .PHONY: launch build_volume build_image clean_volume clean_containers clean_image
 
 PORT=8080
-IMAGE_NAME="my_project"
-VOLUME_NAME="my_project_db"
-CONTAINER_NAME="my_project_runtime"
+IMAGE_NAME=my_project
+VOLUME_NAME=my_project_db
+CONTAINER_NAME=my_project_runtime
 
-build: build_volume build_image
+build: build_image
 rebuild: clean_containers build_image
 clean: clean_containers clean_image
 clean_alter: clean_image
