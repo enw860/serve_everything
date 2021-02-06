@@ -23,6 +23,12 @@ launch:
 		--name ${CONTAINER_NAME} \
 		${IMAGE_NAME}
 
+inspect_volume:
+	docker run \
+		-it --rm \
+		-v ${VOLUME_NAME}:/DB \
+		dockerpinata/sqlite
+
 build_volume:
 	echo "Creating volume `docker volume create ${VOLUME_NAME}`!"
 
