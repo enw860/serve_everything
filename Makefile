@@ -15,8 +15,11 @@ relaunch: clean_containers launch
 
 launch:
 	docker run \
-		-dp 8080:${PORT} \
+		-d \
 		-v ${VOLUME_NAME}:/usr/src/app/server/database/DB \
+		-p 8080:${PORT} \
+		-e SENDGRID_FROM_EMAIL=${SENDGRID_FROM_EMAIL} \
+		-e SENDGRID_API_KEY=${SENDGRID_API_KEY} \
 		--name ${CONTAINER_NAME} \
 		${IMAGE_NAME}
 
