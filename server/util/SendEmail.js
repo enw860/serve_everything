@@ -21,7 +21,7 @@ function compose_email(receivers, subject, emailBody, attachments, cc, bcc) {
         attachments: []
     };
 
-    attachments.forEach(attachment => {
+    (attachments || []).forEach(attachment => {
         if (fs.existsSync(attachment.src)) {
             let data = fs.readFileSync(attachment.src, encoding = "base64");
 
@@ -58,11 +58,28 @@ function fillRegularEmailTemplate(content, username) {
     return data || "";
 }
 
+function fillResetPasswordTemplate(secrete, username) {
+    const SRC = path.join(__dirname, "./EmailTemplate/resetPassword.html");
+
+    let data;
+    if (fs.existsSync(SRC)) {
+        data = fs.readFileSync(SRC, encoding = "utf-8");
+        if (data) {
+            data = data
+                .replace("${USERNAME}", username || "User")
+                .replace("${SECRETE}", secrete || "")
+        }
+    }
+
+    return data || "";
+}
+
 module.exports = {
     compose_email,
     send_email,
     compose_and_send_email,
-    fillRegularEmailTemplate
+    fillRegularEmailTemplate,
+    fillResetPasswordTemplate
 }
 
 /*

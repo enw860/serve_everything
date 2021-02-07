@@ -4,7 +4,7 @@ const DBError = require("../Error/dbErrors");
 const UserAccount = require("./UserAccount");
 const UserProfile = require("./UserProfile");
 
-const {v4} = require("uuid");
+const { v4 } = require("uuid");
 
 class User {
     // to ensure all related tables are created before query executions 
@@ -16,7 +16,7 @@ class User {
     }
 
     // create a new user account, username and password are required
-    register({username, password}, callback) {
+    register({ username, password }, callback) {
         if (!username || !password) {
             return callback(DBError.MISSING_CRITICAL_INFO);
         }
@@ -30,7 +30,7 @@ class User {
         let terminated = false;
         db.serialize(() => {
             this._tablesChecker(db);
-            
+
             db.run(UserAccount._insertTableCommand(userObj), err => {
                 if (err) {
                     terminated = true;
@@ -58,7 +58,7 @@ class User {
     }
 
     // gather user's information
-    fetch({username, login_secrete}, callback) {
+    fetch({ username, login_secrete }, callback) {
         const db = DB.connect();
 
         db.serialize(() => {
@@ -94,8 +94,32 @@ class User {
         db.close();
     }
 
+    // fetch user's email
+    fetchEmail({ username }, callback) {
+        const db = DB.connect();
+
+        db.serialize(() => {
+            this._tablesChecker(db);
+
+            db.get(`
+                SELECT email, firstname
+                FROM ${UserAccount.schema.tableName} account
+                JOIN ${UserProfile.schema.tableName} profile
+                WHERE username=?
+            `, [username], (err, row) => {
+                if (err) {
+                    callback(new DBError.DBError(500, `${err.code} (${err.errno})`));
+                } else {
+                    callback(err, row || {});
+                }
+            })
+        });
+
+        db.close();
+    }
+
     // reset password and remove account lock
-    resetPassword({username, password}, callback) {
+    resetPassword({ username, password }, callback) {
         const db = DB.connect();
 
         db.serialize(() => {
@@ -118,7 +142,7 @@ class User {
     }
 
     // update user's profile, login_secrete is essential for update fields
-    update({username, login_secrete, changes = {}}, callback) {
+    update({ username, login_secrete, changes = {} }, callback) {
         if (!username || !login_secrete) {
             return callback(DBError.MISSING_CRITICAL_INFO);
         }
@@ -154,7 +178,7 @@ class User {
     // which is essential for update user's account
     // user account will be locked if username and password combination are wrong
     // for more than three times
-    login({username, password}, callback) {
+    login({ username, password }, callback) {
         if (!username || !password) {
             return callback(DBError.MISSING_CRITICAL_INFO);
         }
@@ -198,7 +222,7 @@ class User {
                     callback(DBError.LOCKED_ACCOUNT);
                 } else if (row.faltyAccess === 0) {
                     delete row.faltyAccess;
-                    callback(null, {status: "Success!", username, login_secrete});
+                    callback(null, { status: "Success!", username, login_secrete });
                 } else {
                     callback(DBError.FAILED_AUTH);
                 }
@@ -209,7 +233,7 @@ class User {
     }
 
     // logout user's account, login_secrete is essential for logout
-    logout({username, login_secrete}, callback) {
+    logout({ username, login_secrete }, callback) {
         if (!username || !login_secrete) {
             return callback(DBError.MISSING_CRITICAL_INFO);
         }
@@ -239,7 +263,7 @@ class User {
                 } else if ((row || {}).login_secrete) {
                     callback(DBError.UNAUTHORIZED);
                 } else {
-                    callback(null, {status: "Success!"});
+                    callback(null, { status: "Success!" });
                 }
             });
         });
@@ -248,7 +272,7 @@ class User {
     }
 
     // check if a username is unique
-    validateUserName({username}, callback) {
+    validateUserName({ username }, callback) {
         const db = DB.connect();
 
         db.serialize(() => {
