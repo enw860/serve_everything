@@ -1,5 +1,5 @@
 import { REQUEST_ONGOING, COUGHT_FAILURE } from "../const/general";
-import { fetchUser, login, logout, createUser, resetPassword, updateInfo, validate } from "../../api/api";
+import { fetchUser, login, logout, createUser, resetPassword, updateInfo, validate } from "../../../api/api";
 import {
   GET_USER_SUCCESS,
   CREATE_USER_SUCCESS,
