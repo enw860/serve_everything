@@ -1,5 +1,5 @@
 import { REQUEST_ONGOING, COUGHT_FAILURE } from "../const/general";
-import { fetchUser, login, logout, createUser, resetPassword, updateInfo, validate } from "../../../api/api";
+import { fetchUserInfo, login, logout, createAccount, sendEmailForResetPassword, resetPasswordWithSecrete, updateUserProfile, validUsername, validPassword } from "../../../api/auth";
 import {
   GET_USER_SUCCESS,
   CREATE_USER_SUCCESS,
@@ -16,7 +16,7 @@ export function fetch_user(payload) {
     type: REQUEST_ONGOING,
     onSuccess: GET_USER_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: fetchUser,
+    action: fetchUserInfo,
     payload
   }
 }
@@ -27,7 +27,7 @@ export function create_User(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CREATE_USER_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: createUser,
+    action: createAccount,
     payload
   }
 }
@@ -59,29 +59,51 @@ export function update_info(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CHANGE_USER_INFO_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: updateInfo,
+    action: updateUserProfile,
     payload
   }
 }
 
-// change password states
-export function reset_password(payload) {
+// send reset password email
+export function send_reset_password_email(payload) {
   return {
     type: REQUEST_ONGOING,
     onSuccess: CHANGE_USER_PASSWORD_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: resetPassword,
+    action: sendEmailForResetPassword,
     payload
   }
 }
 
-// validate field
-export function validate_field(payload) {
+// change password
+export function reset_password_with_secrete(payload) {
+  return {
+    type: REQUEST_ONGOING,
+    onSuccess: CHANGE_USER_PASSWORD_SUCCESS,
+    onError: COUGHT_FAILURE,
+    action: resetPasswordWithSecrete,
+    payload
+  }
+}
+
+// validate username
+export function validate_username(payload) {
   return {
     type: REQUEST_ONGOING,
     onSuccess: FIELD_VALIDATATION_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: validate,
+    action: validUsername,
+    payload
+  }
+}
+
+// validate password
+export function validate_password(payload) {
+  return {
+    type: REQUEST_ONGOING,
+    onSuccess: FIELD_VALIDATATION_SUCCESS,
+    onError: COUGHT_FAILURE,
+    action: validPassword,
     payload
   }
 }
