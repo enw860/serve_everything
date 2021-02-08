@@ -16,7 +16,7 @@ export function fetch_user(payload) {
     type: REQUEST_ONGOING,
     onSuccess: GET_USER_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: fetchUserInfo,
+    action: data => fetchUserInfo(data, true),
     payload
   }
 }
@@ -27,7 +27,7 @@ export function create_User(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CREATE_USER_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: createAccount,
+    action: data => createAccount(data, true),
     payload
   }
 }
@@ -38,7 +38,7 @@ export function user_login(payload) {
     type: REQUEST_ONGOING,
     onSuccess: USER_LOGIN_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: login,
+    action: data => login(data, true),
     payload
   }
 }
@@ -49,7 +49,7 @@ export function user_logout() {
     type: REQUEST_ONGOING,
     onSuccess: USER_LOGOUT_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: logout
+    action: data => logout(data, true),
   }
 }
 
@@ -59,7 +59,7 @@ export function update_info(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CHANGE_USER_INFO_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: updateUserProfile,
+    action: data => updateUserProfile(data, true),
     payload
   }
 }
@@ -70,7 +70,7 @@ export function send_reset_password_email(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CHANGE_USER_PASSWORD_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: sendEmailForResetPassword,
+    action: data => sendEmailForResetPassword(data, true),
     payload
   }
 }
@@ -81,7 +81,7 @@ export function reset_password_with_secrete(payload) {
     type: REQUEST_ONGOING,
     onSuccess: CHANGE_USER_PASSWORD_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: resetPasswordWithSecrete,
+    action: data => resetPasswordWithSecrete(data, true),
     payload
   }
 }
@@ -92,7 +92,7 @@ export function validate_username(payload) {
     type: REQUEST_ONGOING,
     onSuccess: FIELD_VALIDATATION_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: validUsername,
+    action: data => validUsername(data, true),
     payload
   }
 }
@@ -103,7 +103,7 @@ export function validate_password(payload) {
     type: REQUEST_ONGOING,
     onSuccess: FIELD_VALIDATATION_SUCCESS,
     onError: COUGHT_FAILURE,
-    action: validPassword,
+    action: data => validPassword(data, true),
     payload
   }
 }

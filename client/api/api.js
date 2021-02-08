@@ -1,7 +1,23 @@
 const BASE_URL = ""
 
 // helper functions
-function* sendRequest(method, endpoint, sendData, queryData) {
+function* yieldRequest(method, endpoint, sendData, queryData) {
+  const { url, paramObj } = prepareRequest(method, endpoint, sendData, queryData);
+
+  return yield fetch(url, paramObj)
+    .then(handleFetchResponse)
+    .catch(error => console.log('An error occured with fetch:', error));
+}
+
+function sendRequest(method, endpoint, sendData, queryData) {
+  const { url, paramObj } = prepareRequest(method, endpoint, sendData, queryData);
+
+  return fetch(url, paramObj)
+    .then(handleFetchResponse)
+    .catch(error => console.log('An error occured with fetch:', error));
+}
+
+function prepareRequest(method, endpoint, sendData, queryData) {
   let url = BASE_URL + endpoint;
   let paramObj = {
     method: method,
@@ -11,9 +27,10 @@ function* sendRequest(method, endpoint, sendData, queryData) {
   paramObj.body = JSON.stringify(sendData);
   url += '?' + setupQueryParams(queryData);
 
-  return yield fetch(url, paramObj)
-    .then(handleFetchResponse)
-    .catch(error => console.log('An error occured with fetch:', error));
+  return {
+    url,
+    paramObj
+  };
 }
 
 function setupQueryParams(params = {}) {
@@ -29,4 +46,9 @@ function handleFetchResponse(resp) {
   }
 
   throw Error(resp.statusText);
+}
+
+module.exports = {
+  yieldRequest,
+  sendRequest
 }

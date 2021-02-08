@@ -1,7 +1,7 @@
-import { sendRequest } from "./api";
+import { sendRequest, yieldRequest } from "./api";
 
 module.exports = {
-    login: function (sendData) {
+    login: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/login";
         const data = {
@@ -9,40 +9,44 @@ module.exports = {
             password: sendData.password || "",
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    logout: function (sendData) {
+    logout: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/logout";
         const data = {
             username: sendData.username || "",
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    validUsername: function (sendData) {
+    validUsername: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/validate";
         const data = {
             username: sendData.username || ""
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    validPassword: function (sendData) {
+    validPassword: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/validate";
         const data = {
             password: sendData.password || ""
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    createAccount: function (sendData) {
+    createAccount: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/create";
         const data = {
@@ -50,27 +54,30 @@ module.exports = {
             password: sendData.password || ""
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    fetchUserInfo: function (sendData) {
+    fetchUserInfo: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = "/api/users/info";
         const data = {
             username: sendData.username || "",
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    sendEmailForResetPassword: function (sendData) {
+    sendEmailForResetPassword: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = `/api/users/resetPassword/${sendData.username || ""}`;
 
-        return sendRequest(type, endpoint, {}, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, {}, {});
     },
 
-    resetPasswordWithSecrete: function (sendData) {
+    resetPasswordWithSecrete: function (sendData = {}, yield = false) {
         const type = "POST";
         const endpoint = `/api/users/internal/resetPassword/${sendData.temp_secrete || ""}`;
         const data = {
@@ -78,10 +85,11 @@ module.exports = {
             password: sendData.password || "",
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     },
 
-    updateUserProfile: function (sendData) {
+    updateUserProfile: function (sendData = {}, yield = false) {
         const type = "PUT";
         const endpoint = `/api/users/update`;
 
@@ -96,6 +104,7 @@ module.exports = {
             changes: sendData
         }
 
-        return sendRequest(type, endpoint, data, {});
+        const ongoingRequest = !!yield ? yieldRequest : sendRequest;
+        return ongoingRequest(type, endpoint, data, {});
     }
 }
