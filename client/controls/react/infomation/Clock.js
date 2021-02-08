@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CircleRanger from "./CircleRanger";
 
 import "../../style/style.less";
-import "../../style/toolkit/timer.less";
+import "../../style/toolkit/infomational/Timer.less";
 
 /*
 * @instance
