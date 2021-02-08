@@ -3,7 +3,7 @@ const crypto = require("crypto");
 function encrypt(str = "") {
     var hash = crypto.createHash("sha256");
     data = hash.update(str, "utf-8");
-    gen_hash= data.digest("hex");
+    gen_hash = data.digest("hex");
     return gen_hash;
 }
 
@@ -23,7 +23,12 @@ function validatePassword(str = "") {
 
 }
 
+function isDevMode() {
+    return (process.env.NODE_ENV || "").toLocaleLowerCase() !== "production";
+}
+
 module.exports = {
     encrypt,
-    validatePassword
+    validatePassword,
+    isDevMode
 }

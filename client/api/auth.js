@@ -7,7 +7,6 @@ module.exports = {
         const data = {
             username: sendData.username || "",
             password: sendData.password || "",
-            withSecrete: true
         }
 
         return sendRequest(type, endpoint, data, {});
@@ -18,7 +17,6 @@ module.exports = {
         const endpoint = "/api/users/logout";
         const data = {
             username: sendData.username || "",
-            login_secrete: sendData.login_secrete || ""
         }
 
         return sendRequest(type, endpoint, data, {});
@@ -60,7 +58,6 @@ module.exports = {
         const endpoint = "/api/users/info";
         const data = {
             username: sendData.username || "",
-            login_secrete: sendData.login_secrete || ""
         }
 
         return sendRequest(type, endpoint, data, {});
@@ -89,7 +86,6 @@ module.exports = {
         const endpoint = `/api/users/update`;
 
         const username = sendData.username || "";
-        const login_secrete = sendData.login_secrete || "";
 
         delete sendData.username;
         delete sendData.login_secrete;

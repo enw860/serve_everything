@@ -7,7 +7,7 @@ const Users = DB.User;
 
 const { v4 } = require("uuid");
 const SendEmail = require("../util/SendEmail");
-const { encrypt, validatePassword } = require("../util/util");
+const { encrypt, validatePassword, isDevMode } = require("../util/util");
 
 // use to create a new account, will verify username and password ahead of creation
 router.post("/create", (req, res) => {
@@ -91,7 +91,10 @@ router.post("/validate", (req, res) => {
 
 // login user account, will keep a login secrete in their session as identity for modify user's data
 router.post("/login", (req, res) => {
-    const { username, password, withSecrete } = req.body;
+    const { username, password } = req.body;
+    const { mode } = req.query;
+    const withSecrete = (isDevMode() && (mode === "developer"));
+
     Users.login({ username, password: encrypt(password) }, (err, msg) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
@@ -225,7 +228,7 @@ router.post("/internal/resetPassword/:temp_secrete", (req, res) => {
     const { temp_secrete } = req.params;
     const { mode } = req.query;
 
-    if (mode !== "developer") {
+    if (isDevMode() && (mode !== "developer")) {
         if (temp_secrete !== req.session.temp_secrete) {
             return res.send({
                 statusCode: 402,
