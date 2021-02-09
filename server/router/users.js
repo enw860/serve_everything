@@ -17,6 +17,7 @@ router.post("/create", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
@@ -26,6 +27,7 @@ router.post("/create", (req, res) => {
             if (!validUsername.valid || !validPassword.valid) {
                 res.send({
                     statusCode: res.statusCode,
+                    success: false,
                     message: "Fail to valid username and password!",
                     detail: {
                         username: validUsername,
@@ -37,11 +39,13 @@ router.post("/create", (req, res) => {
                     if (err instanceof ErrorClass) {
                         res.status(err.status).send({
                             statusCode: err.status,
+                            success: false,
                             message: err.message
                         });
                     } else {
                         res.send({
                             statusCode: res.statusCode,
+                            success: true,
                             message: msg,
                             detail: {
                                 username: validUsername,
@@ -64,11 +68,13 @@ router.post("/validate", (req, res) => {
             if (err instanceof ErrorClass) {
                 res.status(err.status).send({
                     statusCode: err.status,
+                    success: false,
                     message: err.message
                 });
             } else {
                 res.send({
                     statusCode: res.statusCode,
+                    success: result.valid,
                     message: result.valid ? "Success" : "Fail to valid username",
                     detail: result
                 });
@@ -78,12 +84,14 @@ router.post("/validate", (req, res) => {
         const validPassword = validatePassword(password);
         res.send({
             statusCode: res.statusCode,
+            success: validPassword.valid,
             message: validPassword.valid ? "Success" : "Fail to valid password",
             detail: validPassword
         });
     } else {
         res.send({
             statusCode: res.statusCode,
+            success: false,
             message: "Missing key infomation",
         });
     }
@@ -99,6 +107,7 @@ router.post("/login", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
@@ -112,7 +121,7 @@ router.post("/login", (req, res) => {
 
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
+                success: true,
                 detail: msg
             });
         }
@@ -129,13 +138,14 @@ router.post("/logout", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
             req.session.destroy(() => {
                 res.send({
                     statusCode: res.statusCode,
-                    message: "Success"
+                    success: true,
                 });
             })
         }
@@ -149,6 +159,7 @@ router.get("/info", (req, res) => {
     if (!username || !login_secrete) {
         return res.send({
             statusCode: res.statusCode,
+            success: false,
             message: "Not authorized"
         });
     }
@@ -157,12 +168,13 @@ router.get("/info", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
+                success: true,
                 detail: info
             });
         }
@@ -178,12 +190,13 @@ router.get("/info/:username", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
+                success: true,
                 detail: info
             });
         }
@@ -199,12 +212,13 @@ router.post("/info", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
+                success: true,
                 detail: info
             });
         }
@@ -212,12 +226,13 @@ router.post("/info", (req, res) => {
 });
 
 // notify user a secrete
-router.get("/resetPassword/:username", (req, res) => {
+router.post("/resetPassword/:username", (req, res) => {
     const { username } = req.params;
     Users.fetchEmail({ username }, (err, msg) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
+                success: false,
                 message: err.message
             });
         } else {
@@ -230,19 +245,23 @@ router.get("/resetPassword/:username", (req, res) => {
                     SendEmail.fillResetPasswordTemplate(temp_secrete, firstname || username),
                 ).then(() => {
                     req.session.temp_secrete = temp_secrete;
+                    req.session.resetPasswordLocked = true;
                     res.send({
                         statusCode: res.status,
+                        success: true,
                         message: "Please check your email!"
                     });
                 }).catch(err => {
                     res.send({
                         statusCode: err.status,
+                        success: false,
                         message: "Cannot send you an email! Please contact Admin!"
                     });
                 });
             } else {
                 res.send({
                     statusCode: res.status,
+                    success: false,
                     message: "We do not have your email, please contact Admin for help!"
                 })
             }
@@ -250,16 +269,38 @@ router.get("/resetPassword/:username", (req, res) => {
     })
 })
 
-// reset user's password
-router.post("/internal/resetPassword/:temp_secrete", (req, res) => {
-    const { temp_secrete } = req.params;
-    const { mode } = req.query;
+// validate if given secrete is valid
+router.post("/validate/password_secrete", (req, res) => {
+    const { temp_secrete } = req.body;
+    const matched = !!temp_secrete && (temp_secrete === req.session.temp_secrete);
 
-    if (isDevMode() && (mode !== "developer")) {
-        if (temp_secrete !== req.session.temp_secrete) {
+    console.warn(temp_secrete, req.session.temp_secrete);
+
+    if (matched) {
+        delete req.session.resetPasswordLocked;
+    }
+
+    return res.send({
+        success: matched,
+        valid: matched,
+        detail: {
+            message: matched ? "Success" : "Not a valid secrete!"
+        }
+    });
+})
+
+// reset user's password
+router.post("/internal/resetPassword", (req, res) => {
+    const { mode } = req.params;
+
+    if (!isDevMode() || mode !== "developer") {
+        if (req.session.resetPasswordLocked || !req.session.temp_secrete) {
             return res.send({
                 statusCode: 402,
-                message: "Not authoried"
+                success: false,
+                detail: {
+                    message: "Not authoried"
+                }
             });
         }
     }
@@ -269,8 +310,9 @@ router.post("/internal/resetPassword/:temp_secrete", (req, res) => {
     if (!validPassword.valid) {
         res.send({
             statusCode: res.statusCode,
-            message: "Fail to valid your password!",
+            success: false,
             detail: {
+                message: "Fail to valid your password!",
                 password: validPassword
             }
         });
@@ -281,14 +323,16 @@ router.post("/internal/resetPassword/:temp_secrete", (req, res) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
                 statusCode: err.status,
-                message: err.message
+                success: false,
+                detail: {
+                    message: err.message
+                }
             });
         } else {
             delete req.session.temp_secrete;
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
-                detail: {}
+                success: true,
             });
         }
     });
@@ -305,13 +349,13 @@ router.put("/update", (req, res) => {
     Users.update({ username, login_secrete, changes }, (err, msg) => {
         if (err instanceof ErrorClass) {
             res.status(err.status).send({
-                message: err.message
+                message: err.message,
+                success: false,
             });
         } else {
             res.send({
                 statusCode: res.statusCode,
-                message: "Success",
-                detail: {}
+                success: true,
             });
         }
     });
