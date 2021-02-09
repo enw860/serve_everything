@@ -25,7 +25,10 @@ function prepareRequest(method, endpoint, sendData, queryData) {
   }
 
   paramObj.body = JSON.stringify(sendData);
-  url += '?' + setupQueryParams(queryData);
+
+  if (Object.keys(queryData).length > 0) {
+    url += '?' + setupQueryParams(queryData);
+  }
 
   return {
     url,
