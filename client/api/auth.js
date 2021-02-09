@@ -58,14 +58,11 @@ export function createAccount(sendData = {}, isYield = false) {
 }
 
 export function fetchUserInfo(sendData = {}, isYield = false) {
-    const type = "POST";
-    const endpoint = "/api/users/info";
-    const data = {
-        username: sendData.username || "",
-    }
+    const type = "GET";
+    const endpoint = !!sendData.username ? "/api/users/info/" + sendData.username : "/api/users/info";
 
     const ongoingRequest = !!isYield ? yieldRequest : sendRequest;
-    return ongoingRequest(type, endpoint, data, {});
+    return ongoingRequest(type, endpoint, {}, {});
 }
 
 export function sendEmailForResetPassword(sendData = {}, isYield = false) {
@@ -76,9 +73,20 @@ export function sendEmailForResetPassword(sendData = {}, isYield = false) {
     return ongoingRequest(type, endpoint, {}, {});
 }
 
+export function validResetPasswordSecrete(sendData = {}, isYield = false) {
+    const type = "POST";
+    const endpoint = `/api/users/validate/password_secrete`;
+    const data = {
+        temp_secrete: sendData.temp_secrete || ""
+    }
+
+    const ongoingRequest = !!isYield ? yieldRequest : sendRequest;
+    return ongoingRequest(type, endpoint, data, {});
+}
+
 export function resetPasswordWithSecrete(sendData = {}, isYield = false) {
     const type = "POST";
-    const endpoint = `/api/users/internal/resetPassword/${sendData.temp_secrete || ""}`;
+    const endpoint = `/api/users/internal/resetPassword`;
     const data = {
         username: sendData.username || "",
         password: sendData.password || "",

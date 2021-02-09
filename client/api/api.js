@@ -24,7 +24,9 @@ function prepareRequest(method, endpoint, sendData, queryData) {
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   }
 
-  paramObj.body = JSON.stringify(sendData);
+  if (method !== "GET") {
+    paramObj.body = JSON.stringify(sendData);
+  }
 
   if (Object.keys(queryData).length > 0) {
     url += '?' + setupQueryParams(queryData);
