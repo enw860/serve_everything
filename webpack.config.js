@@ -29,24 +29,28 @@ module.exports = {
       filename: "[name]/[name].bundle.min.css"
     }),
     new HtmlWebpackPlugin({
+      title: 'User center',
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
       filename: "index.html",
       chunks: ["main"]
     }),
     new HtmlWebpackPlugin({
+      title: 'UI demon (vue)',
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
       filename: "uiDemo-vue/index.html",
       chunks: ["uiDemo-vue"]
     }),
     new HtmlWebpackPlugin({
+      title: 'UI demon (react)',
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
       filename: "uiDemo-react/index.html",
       chunks: ["uiDemo-react"]
     }),
     new HtmlWebpackPlugin({
+      title: 'Auth center',
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
       filename: "auth/index.html",

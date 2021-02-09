@@ -10,7 +10,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-  <title>Loading ...</title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
@@ -20,7 +22,7 @@
     <strong>JavaScript disabled detected! Please enable it to continue.</strong>
   </noscript>
 
-  <div id="main-container">Loading</div>
+  <div id="main-container"></div>
 </body>
 
 </html>
