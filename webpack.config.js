@@ -12,7 +12,8 @@ module.exports = {
   entry: {
     main: "./client/main/index.js",
     "uiDemo-vue": "./client/uiDemo-vue/index.js",
-    "uiDemo-react": "./client/uiDemo-react/index.js"
+    "uiDemo-react": "./client/uiDemo-react/index.js",
+    "auth": "./client/auth/index.js"
   },
   resolve: {
     extensions: [".vue", ".js", ".jsx", ".less", ".css"]
@@ -44,6 +45,12 @@ module.exports = {
       template: "./public/index.html",
       filename: "uiDemo-react/index.html",
       chunks: ["uiDemo-react"]
+    }),
+    new HtmlWebpackPlugin({
+      favicon: "./public/favicon.ico",
+      template: "./public/index.html",
+      filename: "auth/index.html",
+      chunks: ["auth"]
     })
   ],
   optimization: {

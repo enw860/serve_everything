@@ -1,0 +1,14 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+import * as contentSwitcher from './modules/contentSwitcher'
+import * as auth from './modules/auth'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  modules: {
+    contentSwitcher,
+    auth
+  },
+  state: {}
+})
