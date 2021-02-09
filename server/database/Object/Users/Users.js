@@ -68,7 +68,7 @@ class User {
                 SELECT login_secrete, profile.userid, username, createdDate, profile.*
                 FROM ${UserAccount.schema.tableName} account
                 JOIN ${UserProfile.schema.tableName} profile
-                WHERE account.username=?
+                WHERE account.id=profile.userid AND account.username=?
             `, [username], (err, row) => {
                 if (err) {
                     callback(new DBError.DBError(500, `${err.code} (${err.errno})`));
@@ -105,7 +105,7 @@ class User {
                 SELECT email, firstname
                 FROM ${UserAccount.schema.tableName} account
                 JOIN ${UserProfile.schema.tableName} profile
-                WHERE username=?
+                WHERE account.id=profile.userid AND username=?
             `, [username], (err, row) => {
                 if (err) {
                     callback(new DBError.DBError(500, `${err.code} (${err.errno})`));

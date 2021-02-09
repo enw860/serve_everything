@@ -142,6 +142,33 @@ router.post("/logout", (req, res) => {
     });
 });
 
+// get user's information, owner only
+router.get("/info", (req, res) => {
+    const { username, login_secrete } = req.session;
+
+    if (!username || !login_secrete) {
+        return res.send({
+            statusCode: res.statusCode,
+            message: "Not authorized"
+        });
+    }
+
+    Users.fetch({ username, login_secrete }, (err, info) => {
+        if (err instanceof ErrorClass) {
+            res.status(err.status).send({
+                statusCode: err.status,
+                message: err.message
+            });
+        } else {
+            res.send({
+                statusCode: res.statusCode,
+                message: "Success",
+                detail: info
+            });
+        }
+    });
+});
+
 // get user's information, if the call is not made by owner, return a public version of info
 router.get("/info/:username", (req, res) => {
     const { username } = req.params;
