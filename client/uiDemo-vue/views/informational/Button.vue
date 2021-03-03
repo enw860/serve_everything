@@ -3,7 +3,7 @@
 		<ControlDemoTemplate>
 			<div slot="overview">
 				<p>
-					The button contro is used to perform some actions while
+					The button control is used to perform some actions while
 					being clicked. Could be also used as an static icon (e.g.
 					empty btn value + icon + no on click function)
 				</p>
