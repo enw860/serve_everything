@@ -37,7 +37,7 @@
 
 .PageContentBody {
 	width: 100%;
-	padding: 16px 10%;
+	padding: 32px 10%;
 }
 
 .PageContentFooter {
@@ -130,6 +130,7 @@ import Button from "../../controls/vue/infomational/Button.vue";
 
 import AvatarDemo from "./informational/Avatar.vue";
 import BadgeDemo from "./informational/Badge.vue";
+import BreadCrumbsDemo from "./informational/BreadCrumbs.vue";
 
 export default {
 	name: "PageContent",
@@ -141,6 +142,7 @@ export default {
 		Button,
 		AvatarDemo,
 		BadgeDemo,
+		BreadCrumbsDemo,
 	},
 	data: function () {
 		return {

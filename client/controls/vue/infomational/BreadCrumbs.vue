@@ -5,12 +5,17 @@
 			v-for="(step, index) in steps"
 			:key="step.name"
 		>
-			<span class="BreadCrumbsSeparator" v-if="index > 0">/</span>
-			<span v-bind:style="textStyle" class="BreadCrumbsStepName">
+			<span class="BreadCrumbsSeparator" v-if="index > 0">{{
+				separator
+			}}</span>
+			<span class="BreadCrumbsStepName">
 				<Link
 					v-if="!!step.click"
 					:value="step.name"
+					:fontWeight="fontWeight"
+					:color="color"
 					:openInNewTab="false"
+					:disabled="index === steps.length - 1"
 					@click="step.click"
 				/>
 				<span v-else>{{ step.name }}</span>
@@ -33,6 +38,7 @@ export default {
 				auto: "",
 				xsmall: "size-xsmall",
 				small: "size-small",
+				default: "size-normal",
 				normal: "size-normal",
 				large: "size-large",
 				xlarge: "size-xlarge",
@@ -70,6 +76,10 @@ export default {
 			type: String,
 			default: "",
 		},
+		separator: {
+			type: String,
+			default: "/",
+		},
 	},
 	computed: {
 		sizeClass: function () {
@@ -77,12 +87,6 @@ export default {
 		},
 		isDisabled: function () {
 			return this.$parent.isDisabled || this.disabled;
-		},
-		textStyle: function () {
-			return {
-				fontWeight: this.fontWeight,
-				color: this.color,
-			};
 		},
 	},
 };

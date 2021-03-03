@@ -44,6 +44,10 @@ export default {
 			type: Number,
 			default: 400,
 		},
+		color: {
+			type: String,
+			default: "",
+		},
 		openInNewTab: {
 			type: Boolean,
 			default: true,
@@ -70,6 +74,7 @@ export default {
 		textStyle: function () {
 			return {
 				fontWeight: this.fontWeight,
+				color: this.color,
 			};
 		},
 		hrefSource: function () {
