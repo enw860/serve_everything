@@ -16,6 +16,13 @@
 				></Table>
 			</div>
 
+			<div slot="events">
+				<Table
+					:colSettings="ENENTS_COL_SETTINGS"
+					:tableData="ENENTS_TABLE_DATA"
+				></Table>
+			</div>
+
 			<Button
 				slot="widgit"
 				ref="control"
@@ -213,12 +220,28 @@ export default {
 					required: "",
 					description: "Whether the button is disabled or not.",
 				},
+			],
+			ENENTS_COL_SETTINGS: [
 				{
-					prop: "@click",
-					type: "event",
-					default: "",
-					required: "",
-					description: "On click function.",
+					name: "method",
+					displayName: "Method",
+					width: "130px",
+				},
+				{
+					name: "description",
+					displayName: "Description",
+				},
+			],
+			ENENTS_TABLE_DATA: [
+				{
+					method: "@click",
+					description:
+						"Customized binded action, triggered on button onclick.",
+				},
+				{
+					method: "onclick",
+					description:
+						"External control, triggers on button onclick event.",
 				},
 			],
 		};
