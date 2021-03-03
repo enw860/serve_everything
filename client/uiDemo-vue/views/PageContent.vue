@@ -132,6 +132,7 @@ import AvatarDemo from "./informational/Avatar.vue";
 import BadgeDemo from "./informational/Badge.vue";
 import BreadCrumbsDemo from "./informational/BreadCrumbs.vue";
 import ButtonDemo from "./informational/Button.vue";
+import ClockDemo from "./informational/Clock.vue";
 
 export default {
 	name: "PageContent",
@@ -145,6 +146,7 @@ export default {
 		BadgeDemo,
 		BreadCrumbsDemo,
 		ButtonDemo,
+		ClockDemo,
 	},
 	data: function () {
 		return {

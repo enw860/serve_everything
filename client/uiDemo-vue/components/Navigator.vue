@@ -78,6 +78,11 @@ export default {
 						displayName: "Button",
 						widgetName: "ButtonDemo",
 					},
+					{
+						category: "Infomational",
+						displayName: "Clock",
+						widgetName: "ClockDemo",
+					},
 				],
 				Inputs: [
 					{
