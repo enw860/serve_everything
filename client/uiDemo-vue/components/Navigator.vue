@@ -73,6 +73,11 @@ export default {
 						displayName: "Breadcrumbs",
 						widgetName: "BreadCrumbsDemo",
 					},
+					{
+						category: "Infomational",
+						displayName: "Button",
+						widgetName: "ButtonDemo",
+					},
 				],
 				Inputs: [
 					{
