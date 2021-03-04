@@ -126,7 +126,7 @@ export default {
 		},
 		setValueByIndexs: function (indexs) {
 			if (indexs.length > 0) {
-				this.choice = index.reduce((choices, index) => {
+				this.choice = indexs.reduce((choices, index) => {
 					if (index < this.options.length) {
 						return [this.options[index], ...choices];
 					}

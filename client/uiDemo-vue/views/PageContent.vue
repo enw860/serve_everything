@@ -136,6 +136,8 @@ import ClockDemo from "./informational/Clock.vue";
 import DisplayTextDemo from "./informational/DisplayText.vue";
 import LinkDemo from "./informational/Link.vue";
 
+import CheckboxGroupDemo from "./inputs/CheckboxGroup.vue";
+
 export default {
 	name: "PageContent",
 	components: {
@@ -151,6 +153,7 @@ export default {
 		ClockDemo,
 		DisplayTextDemo,
 		LinkDemo,
+		CheckboxGroupDemo,
 	},
 	data: function () {
 		return {

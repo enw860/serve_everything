@@ -98,7 +98,7 @@ export default {
 					{
 						category: "Inputs",
 						displayName: "Checkbox Group",
-						widgetName: "CheckboxGroup",
+						widgetName: "CheckboxGroupDemo",
 					},
 					{
 						category: "Inputs",
