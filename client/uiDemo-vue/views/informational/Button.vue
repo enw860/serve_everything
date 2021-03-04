@@ -1,3 +1,9 @@
+<style lang="less">
+.ButtonDemo textarea {
+	resize: vertical;
+}
+</style>
+
 <template>
 	<div class="ButtonDemo">
 		<ControlDemoTemplate>
@@ -83,6 +89,15 @@
 					/>
 				</LabelWrapper>
 
+				<LabelWrapper value="On click:" size="small">
+					<TextArea
+						slot="labelContent"
+						placeholder="function (event) { <body> }"
+						:value="state.onClickFunctionBody"
+						@blur="updateFunctionBody"
+					/>
+				</LabelWrapper>
+
 				<LabelWrapper value="Disable:" size="small">
 					<Toggle
 						slot="labelContent"
@@ -110,6 +125,7 @@ import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
 import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
+import TextArea from "../../../controls/vue/inputs/TextArea.vue";
 import Toggle from "../../../controls/vue/inputs/Toggle.vue";
 import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vue";
 import Table from "../../../controls/vue/infomational/Table.vue";
@@ -122,6 +138,7 @@ export default {
 		Button,
 		DisplayText,
 		InputText,
+		TextArea,
 		LabelWrapper,
 		SingleSelect,
 		Toggle,
@@ -149,6 +166,7 @@ export default {
 				iconPosition: "left",
 				btnStyle: "Primary",
 				btnSize: "Default",
+				onClickFunctionBody: `alert("Response to click action on button");`,
 				isActive: true,
 			},
 			PROPS_COL_SETTINGS: [
@@ -262,11 +280,14 @@ export default {
 		updateBtnStyle: function (event) {
 			this.state.btnStyle = event.target.value;
 		},
+		updateFunctionBody: function (event) {
+			this.state.onClickFunctionBody = event.target.value;
+		},
 		updateActive: function (event) {
 			this.state.isActive = event.target.checked;
 		},
 		btnOnClick: function (event) {
-			alert("Response to click action on button");
+			(() => eval(this.state.onClickFunctionBody))(event);
 		},
 	},
 	mounted: function () {
