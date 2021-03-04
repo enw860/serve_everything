@@ -67,9 +67,9 @@
 				<LabelWrapper value="Disabled:" size="small">
 					<Toggle
 						slot="labelContent"
-						:state="state.disabled"
-						onLabel="Disabled"
-						offLabel="Active"
+						:state="!state.disabled"
+						onLabel="Active"
+						offLabel="Disabled"
 						toggleStyle="success"
 						@toggle="updateDisabled"
 					/>
@@ -238,7 +238,7 @@ export default {
 			this.state.error = event.target.value;
 		},
 		updateDisabled: function (event) {
-			this.state.disabled = event.target.checked;
+			this.state.disabled = !event.target.checked;
 		},
 	},
 	mounted: function () {

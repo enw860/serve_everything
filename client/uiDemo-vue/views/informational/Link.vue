@@ -108,7 +108,7 @@
 				<LabelWrapper value="Disabled:" size="small">
 					<Toggle
 						slot="labelContent"
-						:state="state.disabled"
+						:state="!state.disabled"
 						onLabel="Active"
 						offLabel="Disabled"
 						toggleStyle="success"
@@ -302,7 +302,7 @@ export default {
 			this.state.openInNewTab = event.target.checked;
 		},
 		updateDisabled: function (event) {
-			this.state.disabled = event.target.checked;
+			this.state.disabled = !event.target.checked;
 		},
 		linkOnClick: function (event) {
 			(() => eval(this.state.onClickFunctionBody))(event);
