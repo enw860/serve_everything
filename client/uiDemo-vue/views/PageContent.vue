@@ -133,6 +133,7 @@ import BadgeDemo from "./informational/Badge.vue";
 import BreadCrumbsDemo from "./informational/BreadCrumbs.vue";
 import ButtonDemo from "./informational/Button.vue";
 import ClockDemo from "./informational/Clock.vue";
+import DisplayTextDemo from "./informational/DisplayText.vue";
 
 export default {
 	name: "PageContent",
@@ -147,6 +148,7 @@ export default {
 		BreadCrumbsDemo,
 		ButtonDemo,
 		ClockDemo,
+		DisplayTextDemo,
 	},
 	data: function () {
 		return {

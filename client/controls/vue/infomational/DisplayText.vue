@@ -21,6 +21,7 @@ export default {
 				auto: "",
 				xsmall: "size-xsmall",
 				small: "size-small",
+				default: "size-normal",
 				normal: "size-normal",
 				large: "size-large",
 				xlarge: "size-xlarge",

@@ -83,6 +83,11 @@ export default {
 						displayName: "Clock",
 						widgetName: "ClockDemo",
 					},
+					{
+						category: "Infomational",
+						displayName: "Display text",
+						widgetName: "DisplayTextDemo",
+					},
 				],
 				Inputs: [
 					{

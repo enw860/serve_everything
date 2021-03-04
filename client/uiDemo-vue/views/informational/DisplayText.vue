@@ -1,12 +1,8 @@
 <template>
-	<div class="BreadCrumbsDemo">
+	<div class="DisplayTextDemo">
 		<ControlDemoTemplate>
 			<div slot="overview">
-				<p>
-					The breadcrumbs are often used as page navigators. The flow
-					of breadcrumbs shows the depth of the page. (the last anchor
-					is always disabled)
-				</p>
+				<p>This control is used to display plain text.</p>
 			</div>
 
 			<div slot="properties">
@@ -16,25 +12,25 @@
 				></Table>
 			</div>
 
-			<BreadCrumbs
+			<DisplayText
 				slot="widgit"
 				ref="control"
-				:steps="state.steps"
+				:value="state.value"
 				:size="state.fontSize"
 				:fontWeight="parseInt(state.fontWeight)"
-				:color="state.fontColor"
-				:separator="state.separator"
+				:color="state.color"
 			/>
 
 			<div slot="control">
 				<DisplayText value="Controls" size="xxxlarge" />
 
-				<LabelWrapper value="Font weight:" size="small">
-					<SingleSelect
+				<LabelWrapper value="Value:" size="small">
+					<InputText
+						ref="content"
 						slot="labelContent"
-						:value="state.fontWeight"
-						:options="FONT_WEIGHT"
-						@change="updateFontWeight"
+						:value="state.value"
+						@blur="updateValue"
+						placeholder="Text"
 					/>
 				</LabelWrapper>
 
@@ -47,20 +43,20 @@
 					/>
 				</LabelWrapper>
 
-				<LabelWrapper value="Font color:" size="small">
-					<ColorInput
+				<LabelWrapper value="Font weight:" size="small">
+					<SingleSelect
 						slot="labelContent"
-						:value="state.fontColor"
-						@change="updateFontColor"
+						:value="state.fontWeight"
+						:options="FONT_WEIGHT"
+						@change="updateFontWeight"
 					/>
 				</LabelWrapper>
 
-				<LabelWrapper value="Separator:" size="small">
-					<InputText
+				<LabelWrapper value="Font color:" size="small">
+					<ColorInput
 						slot="labelContent"
-						:value="state.separator"
-						@blur="updateSeparator"
-						placeholder="Sparator"
+						:value="state.color"
+						@change="updateFontColor"
 					/>
 				</LabelWrapper>
 			</div>
@@ -74,9 +70,8 @@
 import WidgitDemo from "../../components/WidgitDemo.vue";
 import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 
-import BreadCrumbs from "../../../controls/vue/infomational/BreadCrumbs.vue";
-
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
+
 import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
@@ -85,34 +80,35 @@ import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vu
 import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
-	name: "BreadCrumbsDemo",
+	name: "DisplayTextDemo",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,
-		BreadCrumbs,
 		DisplayText,
+		InputText,
 		LabelWrapper,
 		SingleSelect,
-		InputText,
 		ColorInput,
 		HTMLTextLoader,
 		Table,
 	},
 	data: function () {
 		return {
-			FONT_SIZES: ["Default", "Xsmall", "Small", "Large", "xlarge"],
-			FONT_WEIGHT: ["400", "500", "600", "700", "800"],
+			FONT_SIZES: [
+				"Default",
+				"xSmall",
+				"Small",
+				"Large",
+				"xLarge",
+				"xxLarge",
+				"xxxLarge",
+			],
+			FONT_WEIGHT: [400, 600, 800],
 			state: {
-				steps: [
-					{ name: "Link1", click: () => alert("Link1") },
-					{ name: "Link2", click: () => alert("Link2") },
-					{ name: "Link3", click: () => alert("Link3") },
-				],
-				codeStructure: "",
-				separator: "/",
+				value: "Some text",
 				fontSize: "Default",
-				fontWeight: "400",
-				fontColor: "#0f62fe",
+				fontWeight: 400,
+				color: "#000",
 			},
 			PROPS_COL_SETTINGS: [
 				{
@@ -142,55 +138,48 @@ export default {
 			],
 			PROPS_TABLE_DATA: [
 				{
-					prop: "steps",
-					type: "Array",
-					default: "[ ]",
-					required: "",
-					description: "[{name: <name>, click: <function>}...]",
+					prop: "value",
+					type: "String",
+					default: "",
+					required: "true",
+					description: "Content of display.",
 				},
 				{
 					prop: "size",
 					type: "String",
-					default: "auto",
+					default: "default",
 					required: "",
 					description: "Size of the text.",
 				},
 				{
 					prop: "fontWeight",
 					type: "Number",
-					default: "400",
+					default: 400,
 					required: "",
 					description: "Font weight of the text.",
 				},
 				{
 					prop: "color",
 					type: "Hex",
-					default: "",
+					default: "#000000",
 					required: "",
 					description: "Font color of the text.",
-				},
-				{
-					prop: "separator",
-					type: "String",
-					default: "/",
-					required: "",
-					description: "Delimiter of bread crumbs.",
 				},
 			],
 		};
 	},
 	methods: {
-		updateFontColor: function (event) {
-			this.state.fontColor = event.target.value;
-		},
-		updateFontWeight: function (event) {
-			this.state.fontWeight = event.target.value;
+		updateValue: function (event) {
+			this.state.value = event.target.value;
 		},
 		updateFontSize: function (event) {
 			this.state.fontSize = event.target.value;
 		},
-		updateSeparator: function (event) {
-			this.state.separator = event.target.value;
+		updateFontWeight: function (event) {
+			this.state.fontWeight = event.target.value;
+		},
+		updateFontColor: function (event) {
+			this.state.color = event.target.value;
 		},
 	},
 	mounted: function () {
