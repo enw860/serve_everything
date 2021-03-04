@@ -5,7 +5,7 @@
 	<div
 		class="Slideout"
 		v-bind:class="isVisible ? 'show' : 'hide'"
-		@click="toggleSlideout"
+		@click="checkContentBeforeClose"
 	>
 		<div class="SlideoutContent" v-bind:class="directionClass">
 			<slot name="content"></slot>
@@ -40,11 +40,9 @@ export default {
 		},
 	},
 	methods: {
-		toggleSlideout: function (event) {
+		checkContentBeforeClose: function (event) {
 			if (this.isVisible) {
-				!this.contentCheck(event) && this.hideSlidout(event);
-			} else {
-				this.showSlideout(event);
+				!this.contentCheck(event) && this.hideSlideout(event);
 			}
 		},
 		contentCheck: function (event) {
@@ -56,7 +54,7 @@ export default {
 			this.isVisible = true;
 			!!this._events.show && this.$emit("show", event);
 		},
-		hideSlidout: function (event) {
+		hideSlideout: function (event) {
 			this.isVisible = false;
 			!!this._events.hide && this.$emit("hide", event);
 		},

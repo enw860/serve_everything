@@ -16,7 +16,7 @@
 </style>
 
 <template>
-	<Slideout class="Nav-slide" ref="nav" @show="onShow" @hide="onHide">
+	<Slideout class="Nav-slide" ref="nav" @show="() => {}" @hide="onHide">
 		<div slot="content" class="Navigator">
 			<Logo />
 			<Dropdown
