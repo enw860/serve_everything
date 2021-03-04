@@ -207,6 +207,10 @@ export default {
 			],
 			ENENTS_TABLE_DATA: [
 				{
+					method: "@change(event)",
+					description: "Triggered on value change.",
+				},
+				{
 					method: "setValueByIndexs(indexs)",
 					description:
 						"Set values of the control by feed in an array of selected items' indexs.",
