@@ -115,5 +115,10 @@ export default {
 			return this.inputValue;
 		},
 	},
+	watch: {
+		charLimit: function (newVal, oldVal) {
+			this.inputValue = "";
+		},
+	},
 };
 </script>

@@ -105,6 +105,11 @@ export default {
 						displayName: "Radio Group",
 						widgetName: "RadioGroupDemo",
 					},
+					{
+						category: "Inputs",
+						displayName: "Inputs",
+						widgetName: "InputsDemo",
+					},
 				],
 				Layout: [
 					{

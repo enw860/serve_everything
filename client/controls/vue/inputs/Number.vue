@@ -46,7 +46,7 @@ export default {
 		},
 		value: {
 			type: Number,
-			default: "",
+			default: NaN,
 		},
 		size: {
 			type: String,
