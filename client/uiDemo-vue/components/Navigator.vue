@@ -102,8 +102,8 @@ export default {
 					},
 					{
 						category: "Inputs",
-						displayName: "Color input",
-						widgetName: "ColorInput",
+						displayName: "Radio Group",
+						widgetName: "RadioGroupDemo",
 					},
 				],
 				Layout: [

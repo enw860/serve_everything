@@ -101,7 +101,7 @@ export default {
 			return this.options.map((option, index) => {
 				return {
 					option,
-					isChecked: this.getSelectedIndex().indexOf(index) > -1,
+					isChecked: this.getSelectedIndexs().indexOf(index) > -1,
 					controlID: `${this.controlID}-CheckboxBtn${index}`,
 				};
 			});
@@ -141,12 +141,12 @@ export default {
 				);
 			}
 		},
-		getSelectedIndex: function () {
-			return this.getSelectedValue().map((value) =>
+		getSelectedIndexs: function () {
+			return this.getSelectedValues().map((value) =>
 				this.options.indexOf(value)
 			);
 		},
-		getSelectedValue: function () {
+		getSelectedValues: function () {
 			return this.choice || [];
 		},
 	},

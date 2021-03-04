@@ -112,7 +112,7 @@ export default {
 	},
 	methods: {
 		onchange: function (event) {
-			this.choice = this.options.indexOf(event.target.value);
+			this.choice = event.target.value;
 			!this.isDisabled &&
 				!!this._events.change &&
 				this.$emit("change", event);

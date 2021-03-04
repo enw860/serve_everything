@@ -221,7 +221,7 @@
                 }
 
                 &:focus + label .RadioSelector {
-                    box-shadow: 0 0 0 2px @primary-060;
+                    box-shadow: 0 0 0 1px @primary-060;
                 }
 
                 &:disabled + label {
@@ -308,19 +308,20 @@
   .error-message {
     font-size: @text-sm;
     line-height: @text-rg;
-  }
-
-  .RadioSelector, .CheckboxSelector {
+  } 
+  
+  .RadioSelector,
+  .CheckboxSelector {
     width: @text-rg;
     min-width: @text-rg;
     height: @text-rg;
     min-height: @text-rg;
   }
-
+  
   .RadioSelector:before {
-    width: @text-rg / 2;
-    min-width: @text-rg / 2;
-    height: @text-rg / 2;
-    min-height: @text-rg / 2;
+    width: calc(@text-rg / 2);
+    min-width: calc(@text-rg / 2);
+    height: calc(@text-rg / 2);
+    min-height: calc(@text-rg / 2);
   }
 }
