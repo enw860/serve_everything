@@ -18,7 +18,7 @@
 				:clockSize="parseInt(state.clockSize)"
 				:format="state.timeFormat"
 				:fontSize="state.fontSize"
-				:timezoneOffset="parseInt(state.timezoneOffset)"
+				:timezoneOffset="state.timezoneOffset"
 				:showTimeString="state.showTimeString"
 				:showDateString="state.showDateString"
 			/>
@@ -122,7 +122,7 @@ export default {
 	},
 	data: function () {
 		return {
-			CLOCK_SIZES: [100, 150, 200, 250, 300],
+			CLOCK_SIZES: ["100", "150", "200", "250", "300"],
 			TIME_FORMAT: ["hh:mm", "hh:mm:ss", "dd:hh:ss:mm"],
 			state: {
 				codeStructure: "",
@@ -216,7 +216,7 @@ export default {
 			this.state.fontSize = event.target.value;
 		},
 		updateTimezoneOffset: function (event) {
-			this.state.timezoneOffset = event.target.value;
+			this.state.timezoneOffset = parseInt(event.target.value);
 		},
 		updateShowTimeString: function (event) {
 			this.state.showTimeString = event.target.checked;

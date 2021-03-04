@@ -88,6 +88,11 @@ export default {
 						displayName: "Display text",
 						widgetName: "DisplayTextDemo",
 					},
+					{
+						category: "Infomational",
+						displayName: "Link",
+						widgetName: "LinkDemo",
+					},
 				],
 				Inputs: [
 					{

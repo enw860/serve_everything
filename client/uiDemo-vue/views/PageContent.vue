@@ -134,6 +134,7 @@ import BreadCrumbsDemo from "./informational/BreadCrumbs.vue";
 import ButtonDemo from "./informational/Button.vue";
 import ClockDemo from "./informational/Clock.vue";
 import DisplayTextDemo from "./informational/DisplayText.vue";
+import LinkDemo from "./informational/Link.vue";
 
 export default {
 	name: "PageContent",
@@ -149,6 +150,7 @@ export default {
 		ButtonDemo,
 		ClockDemo,
 		DisplayTextDemo,
+		LinkDemo,
 	},
 	data: function () {
 		return {
