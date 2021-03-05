@@ -102,12 +102,12 @@ export default {
 					},
 					{
 						category: "Inputs",
-						displayName: "Radio Group",
-						widgetName: "RadioGroupDemo",
+						displayName: "Single select",
+						widgetName: "SingleSelectDemo",
 					},
 					{
 						category: "Inputs",
-						displayName: "Inputs",
+						displayName: "Text inputs",
 						widgetName: "InputsDemo",
 					},
 					{

@@ -137,7 +137,7 @@ import DisplayTextDemo from "./informational/DisplayText.vue";
 import LinkDemo from "./informational/Link.vue";
 
 import CheckboxGroupDemo from "./inputs/CheckboxGroup.vue";
-import RadioGroupDemo from "./inputs/RadioGroup.vue";
+import SingleSelectDemo from "./inputs/SingleSelect.vue";
 import InputsDemo from "./inputs/Inputs.vue";
 import FileInputDemo from "./inputs/FileInput.vue";
 
@@ -157,7 +157,7 @@ export default {
 		DisplayTextDemo,
 		LinkDemo,
 		CheckboxGroupDemo,
-		RadioGroupDemo,
+		SingleSelectDemo,
 		InputsDemo,
 		FileInputDemo,
 	},

@@ -1,11 +1,12 @@
 <template>
-	<div class="RadioGroupDemo">
+	<div class="SingleSelectDemo">
 		<ControlDemoTemplate>
 			<div slot="overview">
 				<p>
 					This control is used to display a range of options, and only
 					allow user to select one value. Could be combined with Label
-					Wrapper control to provide more advance uses.
+					Wrapper control to provide more advance uses. (SingleSelect
+					and RadioGroup)
 				</p>
 			</div>
 
@@ -23,7 +24,8 @@
 				></Table>
 			</div>
 
-			<RadioGroup
+			<component
+				v-bind:is="state.widgit"
 				slot="widgit"
 				ref="control"
 				:options="state.options"
@@ -37,6 +39,15 @@
 			<div slot="control">
 				<DisplayText value="Controls" size="xxxlarge" />
 
+				<LabelWrapper value="Type:" size="small">
+					<SingleSelect
+						slot="labelContent"
+						:value="state.widgit"
+						:options="TYPES"
+						@change="updateWidgit"
+					/>
+				</LabelWrapper>
+
 				<LabelWrapper value="Size:" size="small">
 					<SingleSelect
 						slot="labelContent"
@@ -46,7 +57,11 @@
 					/>
 				</LabelWrapper>
 
-				<LabelWrapper value="Layout:" size="small">
+				<LabelWrapper
+					value="Layout:"
+					size="small"
+					v-if="state.widgit !== 'SingleSelect'"
+				>
 					<SingleSelect
 						slot="labelContent"
 						:value="state.layout"
@@ -86,10 +101,10 @@ import WidgitDemo from "../../components/WidgitDemo.vue";
 import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 
 import RadioGroup from "../../../controls/vue/inputs/RadioGroup.vue";
+import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
 import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
-import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
 import TextArea from "../../../controls/vue/inputs/TextArea.vue";
 import Toggle from "../../../controls/vue/inputs/Toggle.vue";
@@ -97,7 +112,7 @@ import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vu
 import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
-	name: "RadioGroupDemo",
+	name: "SingleSelectDemo",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,
@@ -113,9 +128,11 @@ export default {
 	},
 	data: function () {
 		return {
+			TYPES: ["SingleSelect", "RadioGroup"],
 			SIZES: ["Small", "Default", "Large", "xLarge"],
 			LAYOUT: ["Vertival", "Horizontal"],
 			state: {
+				widgit: "SingleSelect",
 				options: ["Item1", "Item2", "Item3", "Item4"],
 				value: "Item1",
 				layout: "Vertival",
@@ -184,7 +201,8 @@ export default {
 					type: "String",
 					default: "Vertical",
 					required: "",
-					description: "Layout of the checkboxes.",
+					description:
+						"Layout of the radio buttons. (not for Single select)",
 				},
 				{
 					prop: "disabled",
@@ -211,6 +229,16 @@ export default {
 					description: "Triggered on value change.",
 				},
 				{
+					method: "@focus(event)",
+					description:
+						"Triggered on value gainning focus. (SingleSelect only)",
+				},
+				{
+					method: "@blur(event)",
+					description:
+						"Triggered on value lossing focus. (SingleSelect only)",
+				},
+				{
 					method: "setValueByIndex(index)",
 					description:
 						"Set value of the control by feed in the selected item's index.",
@@ -232,6 +260,9 @@ export default {
 		};
 	},
 	methods: {
+		updateWidgit: function (event) {
+			this.state.widgit = event.target.value;
+		},
 		updateSize: function (event) {
 			this.state.size = event.target.value;
 		},
