@@ -144,6 +144,11 @@ export default {
 						displayName: "Label wrapper",
 						widgetName: "LabelWrapperDemo",
 					},
+					{
+						category: "Wrapper",
+						displayName: "Pop up menu",
+						widgetName: "PopupDemo",
+					},
 				],
 			},
 		};
