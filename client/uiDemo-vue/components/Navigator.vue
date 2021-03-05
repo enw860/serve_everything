@@ -46,10 +46,10 @@ import Slideout from "../../controls/vue/layout/Slideout.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
 import Dropdown from "../../controls/vue/Wrapper/Dropdown.vue";
 
-import InformationalDC from "../views/informational/entries";
-import InputsDC from "../views/inputs/entries";
-import LayoutDC from "../views/layout/entries";
-import WrapperDC from "../views/wrapper/entries";
+import InformationalDC from "../views/informational";
+import InputsDC from "../views/inputs";
+import LayoutDC from "../views/layout";
+import WrapperDC from "../views/wrapper";
 
 export default {
 	name: "Navigator",

@@ -5,5 +5,5 @@ import FileInputDemo from "./FileInput";
 import ToggleDemo from "./Toggle";
 
 export default [
-    MultiSelectDemo, SingleSelectDemo, InputsDemo, FileInputDemo, FileInputDemo, ToggleDemo
+    MultiSelectDemo, SingleSelectDemo, InputsDemo, FileInputDemo, ToggleDemo
 ]

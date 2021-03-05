@@ -128,10 +128,10 @@ import Link from "../../controls/vue/infomational/Link.vue";
 import DisplayText from "../../controls/vue/infomational/DisplayText.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
 
-import InformationalDC from "./informational/entries";
-import InputsDC from "./inputs/entries";
-import LayoutDC from "./layout/entries";
-import WrapperDC from "./wrapper/entries";
+import InformationalDC from "./informational";
+import InputsDC from "./inputs";
+import LayoutDC from "./layout";
+import WrapperDC from "./wrapper";
 
 export default {
 	name: "PageContent",
