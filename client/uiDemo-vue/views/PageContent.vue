@@ -146,6 +146,7 @@ import SeparatorDemo from "./layout/Separator.vue";
 import SlideoutDemo from "./layout/Slideout.vue";
 
 import DropdownDemo from "./wrapper/Dropdown.vue";
+import LabelWrapperDemo from "./wrapper/LabelWrapper.vue";
 
 export default {
 	name: "PageContent",
@@ -170,6 +171,7 @@ export default {
 		SeparatorDemo,
 		SlideoutDemo,
 		DropdownDemo,
+		LabelWrapperDemo,
 	},
 	data: function () {
 		return {

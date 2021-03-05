@@ -139,6 +139,11 @@ export default {
 						displayName: "Drop Down",
 						widgetName: "DropdownDemo",
 					},
+					{
+						category: "Wrapper",
+						displayName: "Label wrapper",
+						widgetName: "LabelWrapperDemo",
+					},
 				],
 			},
 		};
