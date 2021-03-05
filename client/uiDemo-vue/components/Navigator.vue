@@ -149,6 +149,11 @@ export default {
 						displayName: "Pop up menu",
 						widgetName: "PopupDemo",
 					},
+					{
+						category: "Wrapper",
+						displayName: "Tooltip",
+						widgetName: "TooltipDemo",
+					},
 				],
 			},
 		};

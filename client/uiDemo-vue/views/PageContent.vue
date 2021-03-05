@@ -148,6 +148,7 @@ import SlideoutDemo from "./layout/Slideout.vue";
 import DropdownDemo from "./wrapper/Dropdown.vue";
 import LabelWrapperDemo from "./wrapper/LabelWrapper.vue";
 import PopupDemo from "./wrapper/Popup.vue";
+import TooltipDemo from "./wrapper/Tooltip.vue";
 
 export default {
 	name: "PageContent",
@@ -174,6 +175,7 @@ export default {
 		DropdownDemo,
 		LabelWrapperDemo,
 		PopupDemo,
+		TooltipDemo,
 	},
 	data: function () {
 		return {
