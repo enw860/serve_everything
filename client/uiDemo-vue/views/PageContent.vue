@@ -143,6 +143,7 @@ import FileInputDemo from "./inputs/FileInput.vue";
 import ToggleDemo from "./inputs/Toggle.vue";
 
 import SeparatorDemo from "./layout/Separator.vue";
+import SlideoutDemo from "./layout/Slideout.vue";
 
 export default {
 	name: "PageContent",
@@ -165,6 +166,7 @@ export default {
 		FileInputDemo,
 		ToggleDemo,
 		SeparatorDemo,
+		SlideoutDemo,
 	},
 	data: function () {
 		return {

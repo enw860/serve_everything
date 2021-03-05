@@ -129,8 +129,8 @@ export default {
 					},
 					{
 						category: "Layout",
-						displayName: "Mask Layer",
-						widgetName: "MaskLayer",
+						displayName: "Slideout",
+						widgetName: "SlideoutDemo",
 					},
 				],
 				Wrapper: [
