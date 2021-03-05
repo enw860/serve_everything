@@ -167,6 +167,10 @@ export default {
 					method: "@change(event)",
 					description: "Triggered on value change.",
 				},
+				{
+					method: "getValue()",
+					description: "Get choosed file/files.",
+				},
 			],
 		};
 	},
