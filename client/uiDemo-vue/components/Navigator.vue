@@ -115,6 +115,11 @@ export default {
 						displayName: "File selector",
 						widgetName: "FileInputDemo",
 					},
+					{
+						category: "Inputs",
+						displayName: "Toggle",
+						widgetName: "ToggleDemo",
+					},
 				],
 				Layout: [
 					{

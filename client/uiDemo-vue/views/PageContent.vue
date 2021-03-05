@@ -140,6 +140,7 @@ import MultiSelectDemo from "./inputs/MultiSelect.vue";
 import SingleSelectDemo from "./inputs/SingleSelect.vue";
 import InputsDemo from "./inputs/Inputs.vue";
 import FileInputDemo from "./inputs/FileInput.vue";
+import ToggleDemo from "./inputs/Toggle.vue";
 
 export default {
 	name: "PageContent",
@@ -160,6 +161,7 @@ export default {
 		SingleSelectDemo,
 		InputsDemo,
 		FileInputDemo,
+		ToggleDemo,
 	},
 	data: function () {
 		return {
