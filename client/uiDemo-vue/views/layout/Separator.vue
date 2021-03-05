@@ -1,7 +1,7 @@
 <style lang="less">
 .SeparatorDemo .temp-wrapper {
-	width: 50%;
-	height: 50%;
+	width: 80%;
+	height: 80%;
 	position: relative;
 }
 </style>
