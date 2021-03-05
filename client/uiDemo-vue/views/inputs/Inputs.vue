@@ -3,7 +3,8 @@
 		<ControlDemoTemplate>
 			<div slot="overview">
 				<p>
-					Different types of text inputs. (Plain, number and password)
+					Different types of text inputs. (Plain text, number,
+					password, color and text area)
 				</p>
 			</div>
 
