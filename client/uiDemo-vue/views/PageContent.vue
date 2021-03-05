@@ -128,27 +128,16 @@ import Link from "../../controls/vue/infomational/Link.vue";
 import DisplayText from "../../controls/vue/infomational/DisplayText.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
 
-import AvatarDemo from "./informational/Avatar.vue";
-import BadgeDemo from "./informational/Badge.vue";
-import BreadCrumbsDemo from "./informational/BreadCrumbs.vue";
-import ButtonDemo from "./informational/Button.vue";
-import ClockDemo from "./informational/Clock.vue";
-import DisplayTextDemo from "./informational/DisplayText.vue";
-import LinkDemo from "./informational/Link.vue";
-
-import MultiSelectDemo from "./inputs/MultiSelect.vue";
-import SingleSelectDemo from "./inputs/SingleSelect.vue";
-import InputsDemo from "./inputs/Inputs.vue";
-import FileInputDemo from "./inputs/FileInput.vue";
-import ToggleDemo from "./inputs/Toggle.vue";
-
-import SeparatorDemo from "./layout/Separator.vue";
-import SlideoutDemo from "./layout/Slideout.vue";
-
-import DropdownDemo from "./wrapper/Dropdown.vue";
-import LabelWrapperDemo from "./wrapper/LabelWrapper.vue";
-import PopupDemo from "./wrapper/Popup.vue";
-import TooltipDemo from "./wrapper/Tooltip.vue";
+import InformationalDC from "./informational/entries";
+import InputsDC from "./inputs/entries";
+import LayoutDC from "./layout/entries";
+import WrapperDC from "./wrapper/entries";
+const DEMO_CONTROLS = [
+	...InformationalDC,
+	...InputsDC,
+	...LayoutDC,
+	...WrapperDC,
+];
 
 export default {
 	name: "PageContent",
@@ -158,24 +147,10 @@ export default {
 		Link,
 		DisplayText,
 		Button,
-		AvatarDemo,
-		BadgeDemo,
-		BreadCrumbsDemo,
-		ButtonDemo,
-		ClockDemo,
-		DisplayTextDemo,
-		LinkDemo,
-		MultiSelectDemo,
-		SingleSelectDemo,
-		InputsDemo,
-		FileInputDemo,
-		ToggleDemo,
-		SeparatorDemo,
-		SlideoutDemo,
-		DropdownDemo,
-		LabelWrapperDemo,
-		PopupDemo,
-		TooltipDemo,
+		...DEMO_CONTROLS.reduce((moduleObj, control) => {
+			moduleObj[control.name] = control;
+			return moduleObj;
+		}, {}),
 	},
 	data: function () {
 		return {

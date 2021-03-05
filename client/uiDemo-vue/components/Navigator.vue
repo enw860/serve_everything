@@ -46,6 +46,11 @@ import Slideout from "../../controls/vue/layout/Slideout.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
 import Dropdown from "../../controls/vue/Wrapper/Dropdown.vue";
 
+import InformationalDC from "../views/informational/entries";
+import InputsDC from "../views/inputs/entries";
+import LayoutDC from "../views/layout/entries";
+import WrapperDC from "../views/wrapper/entries";
+
 export default {
 	name: "Navigator",
 	components: {
@@ -57,104 +62,34 @@ export default {
 	data: function () {
 		return {
 			categories: {
-				Infomational: [
-					{
+				Infomational: InformationalDC.map((control) => {
+					return {
 						category: "Infomational",
-						displayName: "Avatar",
-						widgetName: "AvatarDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Badge",
-						widgetName: "BadgeDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Breadcrumbs",
-						widgetName: "BreadCrumbsDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Button",
-						widgetName: "ButtonDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Clock",
-						widgetName: "ClockDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Display text",
-						widgetName: "DisplayTextDemo",
-					},
-					{
-						category: "Infomational",
-						displayName: "Link",
-						widgetName: "LinkDemo",
-					},
-				],
-				Inputs: [
-					{
+						displayName: control.displayName || control.name,
+						widgetName: control.name,
+					};
+				}),
+				Inputs: InputsDC.map((control) => {
+					return {
 						category: "Inputs",
-						displayName: "Multiple select",
-						widgetName: "MultiSelectDemo",
-					},
-					{
-						category: "Inputs",
-						displayName: "Single select",
-						widgetName: "SingleSelectDemo",
-					},
-					{
-						category: "Inputs",
-						displayName: "Text inputs",
-						widgetName: "InputsDemo",
-					},
-					{
-						category: "Inputs",
-						displayName: "File selector",
-						widgetName: "FileInputDemo",
-					},
-					{
-						category: "Inputs",
-						displayName: "Toggle",
-						widgetName: "ToggleDemo",
-					},
-				],
-				Layout: [
-					{
+						displayName: control.displayName || control.name,
+						widgetName: control.name,
+					};
+				}),
+				Layout: LayoutDC.map((control) => {
+					return {
 						category: "Layout",
-						displayName: "Separator",
-						widgetName: "SeparatorDemo",
-					},
-					{
-						category: "Layout",
-						displayName: "Slideout",
-						widgetName: "SlideoutDemo",
-					},
-				],
-				Wrapper: [
-					{
+						displayName: control.displayName || control.name,
+						widgetName: control.name,
+					};
+				}),
+				Wrapper: WrapperDC.map((control) => {
+					return {
 						category: "Wrapper",
-						displayName: "Drop Down",
-						widgetName: "DropdownDemo",
-					},
-					{
-						category: "Wrapper",
-						displayName: "Label wrapper",
-						widgetName: "LabelWrapperDemo",
-					},
-					{
-						category: "Wrapper",
-						displayName: "Pop up menu",
-						widgetName: "PopupDemo",
-					},
-					{
-						category: "Wrapper",
-						displayName: "Tooltip",
-						widgetName: "TooltipDemo",
-					},
-				],
+						displayName: control.displayName || control.name,
+						widgetName: control.name,
+					};
+				}),
 			},
 		};
 	},
