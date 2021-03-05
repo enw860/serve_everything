@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="DivideLine"
+		class="Separator"
 		v-bind:class="directionClass"
 		v-bind:style="style"
 	></div>
@@ -8,10 +8,10 @@
 
 <script>
 import { normalizeInput } from "../../util/utilities";
-import "../../style/toolkit/layout/DivideLine.less";
+import "../../style/toolkit/layout/Separator.less";
 
 export default {
-	name: "DivideLine",
+	name: "Separator",
 	data: function () {
 		return {
 			DIRECTION: {
