@@ -132,12 +132,6 @@ import InformationalDC from "./informational/entries";
 import InputsDC from "./inputs/entries";
 import LayoutDC from "./layout/entries";
 import WrapperDC from "./wrapper/entries";
-const DEMO_CONTROLS = [
-	...InformationalDC,
-	...InputsDC,
-	...LayoutDC,
-	...WrapperDC,
-];
 
 export default {
 	name: "PageContent",
@@ -147,10 +141,13 @@ export default {
 		Link,
 		DisplayText,
 		Button,
-		...DEMO_CONTROLS.reduce((moduleObj, control) => {
-			moduleObj[control.name] = control;
-			return moduleObj;
-		}, {}),
+		...[...InformationalDC, ...InputsDC, ...LayoutDC, ...WrapperDC].reduce(
+			(moduleObj, control) => {
+				moduleObj[control.name] = control;
+				return moduleObj;
+			},
+			{}
+		),
 	},
 	data: function () {
 		return {
