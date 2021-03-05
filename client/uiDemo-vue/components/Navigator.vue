@@ -124,8 +124,8 @@ export default {
 				Layout: [
 					{
 						category: "Layout",
-						displayName: "Divide Line",
-						widgetName: "DivideLine",
+						displayName: "Separator",
+						widgetName: "SeparatorDemo",
 					},
 					{
 						category: "Layout",

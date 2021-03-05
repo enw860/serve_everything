@@ -40,8 +40,15 @@ export default {
 		},
 		style: function () {
 			return {
-				borderColor: this.color,
-				borderWidth: this.thickness ? `${this.thickness}px` : "",
+				backgroundColor: this.color,
+				width:
+					this.directionClass === "divide-horizontal"
+						? "100%"
+						: `${this.thickness}px`,
+				height:
+					this.directionClass === "divide-horizontal"
+						? `${this.thickness}px`
+						: "100%",
 			};
 		},
 	},

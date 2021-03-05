@@ -142,6 +142,8 @@ import InputsDemo from "./inputs/Inputs.vue";
 import FileInputDemo from "./inputs/FileInput.vue";
 import ToggleDemo from "./inputs/Toggle.vue";
 
+import SeparatorDemo from "./layout/Separator.vue";
+
 export default {
 	name: "PageContent",
 	components: {
@@ -162,6 +164,7 @@ export default {
 		InputsDemo,
 		FileInputDemo,
 		ToggleDemo,
+		SeparatorDemo,
 	},
 	data: function () {
 		return {
