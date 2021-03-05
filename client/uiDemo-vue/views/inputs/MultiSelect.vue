@@ -109,6 +109,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "MultiSelectDemo",
+	displayName: "Mutiple select",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

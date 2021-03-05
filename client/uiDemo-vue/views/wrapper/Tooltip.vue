@@ -106,6 +106,7 @@ import Toggle from "../../../controls/vue/inputs/Toggle.vue";
 
 export default {
 	name: "TooltipDemo",
+	displayName: "Tooltip",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

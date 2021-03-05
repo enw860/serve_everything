@@ -107,6 +107,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "ClockDemo",
+	displayName: "Clock",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

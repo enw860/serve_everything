@@ -82,6 +82,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "FileInputDemo",
+	displayName: "File input",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

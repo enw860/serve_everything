@@ -78,6 +78,7 @@ import Toggle from "../../../controls/vue/inputs/Toggle.vue";
 
 export default {
 	name: "PopupDemo",
+	displayName: "Popup",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

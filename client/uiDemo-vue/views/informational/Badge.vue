@@ -105,6 +105,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "BadgeDemo",
+	displayName: "Badge",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

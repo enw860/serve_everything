@@ -83,6 +83,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "SeparatorDemo",
+	displayName: "Separator",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

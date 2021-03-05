@@ -97,6 +97,7 @@ import Toggle from "../../../controls/vue/inputs/Toggle.vue";
 
 export default {
 	name: "LabelWrapperDemo",
+	displayName: "Label wrapper",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

@@ -115,6 +115,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "ToggleDemo",
+	displayName: "Toggle pill",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

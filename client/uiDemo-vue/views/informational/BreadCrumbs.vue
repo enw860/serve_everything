@@ -86,6 +86,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "BreadCrumbsDemo",
+	displayName: "Bread crumbs",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

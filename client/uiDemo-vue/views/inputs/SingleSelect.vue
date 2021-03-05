@@ -113,6 +113,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "SingleSelectDemo",
+	displayName: "Single select",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

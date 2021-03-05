@@ -115,6 +115,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "SlideoutDemo",
+	displayName: "Slideout",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

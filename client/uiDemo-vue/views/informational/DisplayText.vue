@@ -81,6 +81,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "DisplayTextDemo",
+	displayName: "Plain text",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

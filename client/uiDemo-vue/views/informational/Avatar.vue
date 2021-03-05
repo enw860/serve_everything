@@ -139,6 +139,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "AvatarDemo",
+	displayName: "Avatar",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

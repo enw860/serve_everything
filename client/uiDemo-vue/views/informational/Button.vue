@@ -132,6 +132,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "ButtonDemo",
+	displayName: "Button",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

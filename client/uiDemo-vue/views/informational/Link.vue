@@ -140,6 +140,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "LinkDemo",
+	displayName: "Link",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

@@ -115,6 +115,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "InputsDemo",
+	displayName: "Text inputs",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,

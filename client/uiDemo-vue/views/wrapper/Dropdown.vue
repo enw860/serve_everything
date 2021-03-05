@@ -93,6 +93,7 @@ import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
 	name: "DropdownDemo",
+	displayName: "Dropdown",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,
