@@ -1,11 +1,12 @@
 <template>
-	<div class="CheckboxGroupDemo">
+	<div class="MultiSelectDemo">
 		<ControlDemoTemplate>
 			<div slot="overview">
 				<p>
 					This control is used to display a range of options, and
 					allow user to select multiple values. Could be combined with
 					Label Wrapper control to provide more advance uses.
+					(CheckboxGroup)
 				</p>
 			</div>
 
@@ -23,9 +24,10 @@
 				></Table>
 			</div>
 
-			<CheckboxGroup
+			<component
 				slot="widgit"
 				ref="control"
+				v-bind:is="state.widgit"
 				:options="state.options"
 				:value="state.values"
 				:layout="state.layout"
@@ -36,6 +38,15 @@
 
 			<div slot="control">
 				<DisplayText value="Controls" size="xxxlarge" />
+
+				<LabelWrapper value="Type:" size="small">
+					<SingleSelect
+						slot="labelContent"
+						:value="state.widgit"
+						:options="TYPES"
+						@change="updateWidgit"
+					/>
+				</LabelWrapper>
 
 				<LabelWrapper value="Size:" size="small">
 					<SingleSelect
@@ -97,7 +108,7 @@ import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vu
 import Table from "../../../controls/vue/infomational/Table.vue";
 
 export default {
-	name: "CheckboxGroupDemo",
+	name: "MultiSelectDemo",
 	components: {
 		WidgitDemo,
 		ControlDemoTemplate,
@@ -113,9 +124,11 @@ export default {
 	},
 	data: function () {
 		return {
+			TYPES: ["CheckboxGroup"],
 			SIZES: ["Small", "Default", "Large", "xLarge"],
 			LAYOUT: ["Vertival", "Horizontal"],
 			state: {
+				widgit: "CheckboxGroup",
 				options: ["Item1", "Item2", "Item3", "Item4"],
 				values: ["Item2", "Item3"],
 				layout: "Vertival",
@@ -232,6 +245,9 @@ export default {
 		};
 	},
 	methods: {
+		updateWidgit: function (event) {
+			this.state.widgit = event.target.value;
+		},
 		updateSize: function (event) {
 			this.state.size = event.target.value;
 		},

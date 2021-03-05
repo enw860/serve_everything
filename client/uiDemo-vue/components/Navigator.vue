@@ -97,8 +97,8 @@ export default {
 				Inputs: [
 					{
 						category: "Inputs",
-						displayName: "Checkbox Group",
-						widgetName: "CheckboxGroupDemo",
+						displayName: "Multiple select",
+						widgetName: "MultiSelectDemo",
 					},
 					{
 						category: "Inputs",

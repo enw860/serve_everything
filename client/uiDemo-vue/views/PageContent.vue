@@ -136,7 +136,7 @@ import ClockDemo from "./informational/Clock.vue";
 import DisplayTextDemo from "./informational/DisplayText.vue";
 import LinkDemo from "./informational/Link.vue";
 
-import CheckboxGroupDemo from "./inputs/CheckboxGroup.vue";
+import MultiSelectDemo from "./inputs/MultiSelect.vue";
 import SingleSelectDemo from "./inputs/SingleSelect.vue";
 import InputsDemo from "./inputs/Inputs.vue";
 import FileInputDemo from "./inputs/FileInput.vue";
@@ -156,7 +156,7 @@ export default {
 		ClockDemo,
 		DisplayTextDemo,
 		LinkDemo,
-		CheckboxGroupDemo,
+		MultiSelectDemo,
 		SingleSelectDemo,
 		InputsDemo,
 		FileInputDemo,
