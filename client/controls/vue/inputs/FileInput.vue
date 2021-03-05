@@ -14,6 +14,7 @@
 				btnStyle="primary"
 				icon="fa-upload"
 				:value="btnText"
+				:size="size"
 				:disabled="isDisabled"
 				:aria-describedby="describeBy"
 				@click="chooseFiles"

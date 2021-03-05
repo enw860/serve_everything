@@ -110,6 +110,11 @@ export default {
 						displayName: "Inputs",
 						widgetName: "InputsDemo",
 					},
+					{
+						category: "Inputs",
+						displayName: "File selector",
+						widgetName: "FileInputDemo",
+					},
 				],
 				Layout: [
 					{

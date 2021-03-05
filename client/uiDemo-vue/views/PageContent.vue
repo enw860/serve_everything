@@ -139,6 +139,7 @@ import LinkDemo from "./informational/Link.vue";
 import CheckboxGroupDemo from "./inputs/CheckboxGroup.vue";
 import RadioGroupDemo from "./inputs/RadioGroup.vue";
 import InputsDemo from "./inputs/Inputs.vue";
+import FileInputDemo from "./inputs/FileInput.vue";
 
 export default {
 	name: "PageContent",
@@ -158,6 +159,7 @@ export default {
 		CheckboxGroupDemo,
 		RadioGroupDemo,
 		InputsDemo,
+		FileInputDemo,
 	},
 	data: function () {
 		return {
