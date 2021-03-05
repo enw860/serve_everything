@@ -137,12 +137,7 @@ export default {
 					{
 						category: "Wrapper",
 						displayName: "Drop Down",
-						widgetName: "DropDown",
-					},
-					{
-						category: "Wrapper",
-						displayName: "Label Wrapper",
-						widgetName: "LabelWrapper",
+						widgetName: "DropdownDemo",
 					},
 				],
 			},

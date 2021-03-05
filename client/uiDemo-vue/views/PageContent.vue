@@ -145,6 +145,8 @@ import ToggleDemo from "./inputs/Toggle.vue";
 import SeparatorDemo from "./layout/Separator.vue";
 import SlideoutDemo from "./layout/Slideout.vue";
 
+import DropdownDemo from "./wrapper/Dropdown.vue";
+
 export default {
 	name: "PageContent",
 	components: {
@@ -167,6 +169,7 @@ export default {
 		ToggleDemo,
 		SeparatorDemo,
 		SlideoutDemo,
+		DropdownDemo,
 	},
 	data: function () {
 		return {
