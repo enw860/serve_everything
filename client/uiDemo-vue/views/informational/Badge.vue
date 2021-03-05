@@ -186,7 +186,7 @@ export default {
 	},
 	methods: {
 		updateContent: function (event) {
-			this.state.content = parseInt(this.$refs.content.getValue());
+			this.state.content = parseFloat(this.$refs.content.getValue());
 		},
 		updateBackgroundColor: function (event) {
 			this.state.backgroundColor = event.target.value;

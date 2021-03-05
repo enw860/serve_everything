@@ -15,7 +15,7 @@
 			<Clock
 				slot="widgit"
 				ref="control"
-				:clockSize="parseInt(state.clockSize)"
+				:clockSize="parseFloat(state.clockSize)"
 				:format="state.timeFormat"
 				:fontSize="state.fontSize"
 				:timezoneOffset="state.timezoneOffset"
@@ -216,7 +216,7 @@ export default {
 			this.state.fontSize = event.target.value;
 		},
 		updateTimezoneOffset: function (event) {
-			this.state.timezoneOffset = parseInt(event.target.value);
+			this.state.timezoneOffset = parseFloat(event.target.value);
 		},
 		updateShowTimeString: function (event) {
 			this.state.showTimeString = event.target.checked;
