@@ -88,7 +88,6 @@ import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
 import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
-import ColorInput from "../../../controls/vue/inputs/ColorInput.vue";
 import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vue";
 import Table from "../../../controls/vue/infomational/Table.vue";
 
@@ -102,7 +101,6 @@ export default {
 		LabelWrapper,
 		SingleSelect,
 		InputText,
-		ColorInput,
 		HTMLTextLoader,
 		Table,
 	},
