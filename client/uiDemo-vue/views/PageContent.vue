@@ -107,9 +107,9 @@
 					<div class="HLayout">
 						<Link
 							value="Github"
-							href="https://github.com/enw860/vueApp"
+							href="https://github.com/enw860/IApps"
 						/>
-						<DisplayText value="- Version 1.0.0" color="#e0e0e0" />
+						<DisplayText value="- Version 2.0.0" color="#e0e0e0" />
 					</div>
 					<div class="HLayout">
 						<DisplayText
@@ -126,7 +126,7 @@
 						/>
 						<Link
 							value="MIT License."
-							href="https://github.com/enw860/vueApp"
+							href="https://github.com/enw860/IApps/blob/main/LICENSE"
 						/>
 					</div>
 				</div>
