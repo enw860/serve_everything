@@ -22,6 +22,13 @@
 				></Table>
 			</div>
 
+			<div slot="events">
+				<Table
+					:colSettings="ENENTS_COL_SETTINGS"
+					:tableData="ENENTS_TABLE_DATA"
+				></Table>
+			</div>
+
 			<Dropdown
 				slot="widgit"
 				ref="control"
@@ -170,6 +177,35 @@ export default {
 					default: "false",
 					required: "",
 					description: "Init state of the expanded control.",
+				},
+			],
+			ENENTS_COL_SETTINGS: [
+				{
+					name: "method",
+					displayName: "Method",
+					width: "130px",
+				},
+				{
+					name: "description",
+					displayName: "Description",
+				},
+			],
+			ENENTS_TABLE_DATA: [
+				{
+					method: "@expand",
+					description: "Triggers on expand action.",
+				},
+				{
+					method: "@collaspe",
+					description: "Triggers on collaspe action.",
+				},
+				{
+					method: "expandDropDown(event)",
+					description: "Expand the drop down control.",
+				},
+				{
+					method: "collaspeDropDown(event)",
+					description: "Collaspe the drop down control.",
 				},
 			],
 		};
