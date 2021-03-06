@@ -20,10 +20,12 @@
 		<div slot="content" class="Navigator">
 			<Logo />
 			<Dropdown
-				v-for="category in Object.keys(categories)"
+				ref="categories"
+				v-for="(category, index) in Object.keys(categories)"
 				:key="category"
 				:title="category"
 				colorStyle="dark"
+				@expand="(event) => expandCategory(event, index)"
 			>
 				<div slot="content">
 					<Button
@@ -104,6 +106,14 @@ export default {
 		},
 		onHide: function () {
 			store.dispatch("uiDemo/hideNav");
+		},
+		expandCategory: function (event, index) {
+			const categories = this.$refs.categories || [];
+			categories.forEach((category, i) => {
+				if (i !== index) {
+					category.collaspeDropDown();
+				}
+			});
 		},
 	},
 	watch: {
