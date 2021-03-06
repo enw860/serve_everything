@@ -1,6 +1,16 @@
 <style lang="less">
 @import "../../controls/style/theme/theme.less";
 
+.PageContentWrapper {
+	&.small {
+		width: 100vw;
+	}
+	&.regular {
+		margin-left: 250px;
+		width: calc(100vw - 250px);
+	}
+}
+
 .PageContentHeader {
 	width: 100%;
 	background-color: @grey-100;
@@ -53,11 +63,14 @@
 </style>
 
 <template>
-	<div class="Page">
+	<div class="Page HLayout">
 		<Navigator />
 		<div class="main">
 			<MenuBar />
-			<div class="PageContentWrapper VLayout align-center">
+			<div
+				class="PageContentWrapper VLayout align-center"
+				v-bind:class="[screenMode]"
+			>
 				<div class="PageContentHeader VLayout">
 					<span class="category">{{
 						pageContent.category || "Category"
@@ -173,6 +186,10 @@ export default {
 	computed: {
 		pageContent: function () {
 			return this.$store.state.uiDemo.mainContentView;
+		},
+
+		screenMode: function () {
+			return this.$store.state.uiDemo.screenMode;
 		},
 
 		scrollHeightDeduction: function () {

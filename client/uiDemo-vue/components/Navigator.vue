@@ -1,13 +1,22 @@
 <style lang="less">
 @import "../../controls/style/theme/theme.less";
 
-.Nav-slide > .SlideoutContent {
+.NavigatorWrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	border-right: 1px solid @white;
+}
+
+.Nav-slide.NavigatorWrapper,
+.Nav-slide .SlideoutContent {
+	width: 250px;
 	background-color: @grey-100;
 	color: @white !important;
 
 	.Navigator {
 		width: 250px;
-
 		.DropdownContent div.Button {
 			width: 100%;
 
@@ -24,7 +33,14 @@
 </style>
 
 <template>
-	<Slideout class="Nav-slide" ref="nav" @show="() => {}" @hide="onHide">
+	<component
+		v-bind:is="navigatorType"
+		v-bind:class="[navigatorType === 'div' ? 'NavigatorWrapper' : '']"
+		class="Nav-slide"
+		ref="nav"
+		@show="() => {}"
+		@hide="onHide"
+	>
 		<div slot="content" class="Navigator">
 			<Logo />
 			<Dropdown
@@ -49,7 +65,7 @@
 				</div>
 			</Dropdown>
 		</div>
-	</Slideout>
+	</component>
 </template>
 
 <script>
@@ -74,6 +90,7 @@ export default {
 	},
 	data: function () {
 		return {
+			navigatorType: "div",
 			categories: {
 				Infomational: InformationalDC.map((control) => {
 					return {
@@ -107,6 +124,9 @@ export default {
 		};
 	},
 	computed: {
+		screenMode: function () {
+			return this.$store.state.uiDemo.screenMode;
+		},
 		displayNav: function () {
 			return this.$store.state.uiDemo.displayNav;
 		},
@@ -116,7 +136,6 @@ export default {
 	},
 	methods: {
 		switchContextTerm: function (term) {
-			this.$refs.nav.hideSlideout();
 			store.dispatch("uiDemo/switchMainContent", term);
 		},
 		onHide: function () {
@@ -133,7 +152,14 @@ export default {
 	},
 	watch: {
 		displayNav: function (newVal, oldVal) {
-			newVal && this.$refs.nav.showSlideout();
+			newVal &&
+				this.$refs.nav.showSlideout &&
+				this.$refs.nav.showSlideout();
+		},
+
+		screenMode(newVal, oldVal) {
+			this.navigatorType = newVal === "small" ? "Slideout" : "div";
+			this.$refs.nav.hideSlideout && this.$refs.nav.hideSlideout();
 		},
 	},
 	beforeDestroy: function () {
