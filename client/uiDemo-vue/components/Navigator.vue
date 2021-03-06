@@ -10,6 +10,14 @@
 
 		.DropdownContent div.Button {
 			width: 100%;
+
+			&:not(:last-child) {
+				margin-bottom: 4px;
+			}
+
+			&.selected {
+				border-left: 4px solid @primary-060;
+			}
 		}
 	}
 }
@@ -21,18 +29,21 @@
 			<Logo />
 			<Dropdown
 				ref="categories"
-				v-for="(category, index) in Object.keys(categories)"
+				v-for="(category, i) in Object.keys(categories)"
 				:key="category"
 				:title="category"
 				colorStyle="dark"
-				@expand="(event) => expandCategory(event, index)"
+				size="large"
+				@expand="(event) => expandCategory(event, i)"
 			>
 				<div slot="content">
 					<Button
+						v-bind:class="[term === pageContent ? 'selected' : '']"
 						v-for="term in categories[category]"
 						:key="term.widgetName"
 						:value="term.displayName"
 						btnStyle="dark"
+						size="large"
 						@click="() => switchContextTerm(term)"
 					></Button>
 				</div>
@@ -99,9 +110,13 @@ export default {
 		displayNav: function () {
 			return this.$store.state.uiDemo.displayNav;
 		},
+		pageContent: function () {
+			return this.$store.state.uiDemo.mainContentView;
+		},
 	},
 	methods: {
 		switchContextTerm: function (term) {
+			this.$refs.nav.hideSlideout();
 			store.dispatch("uiDemo/switchMainContent", term);
 		},
 		onHide: function () {
