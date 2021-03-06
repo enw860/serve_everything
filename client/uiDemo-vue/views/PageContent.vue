@@ -107,7 +107,7 @@
 					<div class="HLayout">
 						<Link
 							value="Github"
-							href="https://github.com/enw860/IApps"
+							href="https://github.com/enw860/IApps/tree/main/client/uiDemo-vue"
 						/>
 						<DisplayText value="- Version 2.0.0" color="#e0e0e0" />
 					</div>
