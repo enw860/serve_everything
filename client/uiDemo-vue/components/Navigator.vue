@@ -162,8 +162,5 @@ export default {
 			this.$refs.nav.hideSlideout && this.$refs.nav.hideSlideout();
 		},
 	},
-	beforeDestroy: function () {
-		this.unwatch();
-	},
 };
 </script>

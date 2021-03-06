@@ -80,7 +80,10 @@
 					}}</span>
 				</div>
 
-				<div class="PageContentNav HLayout">
+				<div
+					class="PageContentNav HLayout"
+					v-if="!!pageContent.displayName"
+				>
 					<div
 						class="NavBlock"
 						v-for="navObj of navLinks"
@@ -185,7 +188,7 @@ export default {
 	},
 	computed: {
 		pageContent: function () {
-			return this.$store.state.uiDemo.mainContentView;
+			return this.$store.state.uiDemo.mainContentView || {};
 		},
 
 		screenMode: function () {
@@ -239,7 +242,6 @@ export default {
 	},
 	beforeDestroy: function () {
 		window.removeEventListener("scroll", this.onScroll, true);
-		this.unwatch();
 	},
 };
 </script>
