@@ -45,7 +45,7 @@ export default {
 	data: function () {
 		return {
 			icon: "fa-compass",
-			name: "CompuTas!",
+			name: "UI Demo",
 		};
 	},
 	methods: {

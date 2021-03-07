@@ -2,6 +2,8 @@
 @import "../../controls/style/theme/theme.less";
 
 .PageContentWrapper {
+	min-height: calc(100vh - 54px);
+
 	&.small {
 		width: 100vw;
 	}
@@ -51,6 +53,7 @@
 }
 
 .PageContentFooter {
+	margin-top: auto;
 	width: 100%;
 	background-color: @grey-100;
 	color: @white;
@@ -73,16 +76,16 @@
 			>
 				<div class="PageContentHeader VLayout">
 					<span class="category">{{
-						pageContent.category || "Category"
+						pageContent.category || "Catogory"
 					}}</span>
 					<span class="displayName">{{
-						pageContent.displayName || "Welcome"
+						pageContent.displayName || "Display name"
 					}}</span>
 				</div>
 
 				<div
 					class="PageContentNav HLayout"
-					v-if="!!pageContent.displayName"
+					v-if="pageContent.category !== 'Welcome to'"
 				>
 					<div
 						class="NavBlock"
@@ -144,6 +147,8 @@ import Link from "../../controls/vue/infomational/Link.vue";
 import DisplayText from "../../controls/vue/infomational/DisplayText.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
 
+import Welcome from "./Welcome.vue";
+
 import InformationalDC from "./informational";
 import InputsDC from "./inputs";
 import LayoutDC from "./layout";
@@ -157,6 +162,7 @@ export default {
 		Link,
 		DisplayText,
 		Button,
+		Welcome,
 		...[...InformationalDC, ...InputsDC, ...LayoutDC, ...WrapperDC].reduce(
 			(moduleObj, control) => {
 				moduleObj[control.name] = control;

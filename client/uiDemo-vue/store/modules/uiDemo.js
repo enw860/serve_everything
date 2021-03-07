@@ -1,8 +1,14 @@
 export const namespaced = true
 
+const welcomPage = {
+  category: "Welcome to",
+  displayName: "UI Demo",
+  widgetName: "Welcome",
+}
+
 export const state = {
   displayNav: false,
-  mainContentView: "",
+  mainContentView: welcomPage,
   screenMode: "regular"
 };
 
@@ -26,7 +32,7 @@ export const actions = {
     commit("SET_NAV", { displayNav: false });
   },
   switchMainContent({ commit, dispatch }, mainContentView) {
-    commit("SET_MAIN", { mainContentView: mainContentView || "" });
+    commit("SET_MAIN", { mainContentView: mainContentView || welcomPage });
   },
   switchScreenMode({ commit, dispatch }, screenMode) {
     commit("SET_SCREEN_MODE", { screenMode: screenMode || "" });
