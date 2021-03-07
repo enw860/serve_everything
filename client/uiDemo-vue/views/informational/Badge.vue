@@ -95,7 +95,7 @@ import Avatar from "../../../controls/vue/infomational/Avatar.vue";
 import Badge from "../../../controls/vue/infomational/Badge.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import Number from "../../../controls/vue/inputs/Number.vue";
 import ColorInput from "../../../controls/vue/inputs/ColorInput.vue";

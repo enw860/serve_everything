@@ -66,7 +66,7 @@
 
 <script>
 import ColorInput from "../../controls/vue/inputs/ColorInput.vue";
-import LabelWrapper from "../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../controls/vue/wrapper/LabelWrapper.vue";
 
 export default {
 	name: "widgitDemo",

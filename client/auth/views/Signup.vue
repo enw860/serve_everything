@@ -61,7 +61,7 @@ import InputText from "../../controls/vue/inputs/InputText";
 import Password from "../../controls/vue/inputs/Password";
 import Button from "../../controls/vue/infomational/Button";
 
-import LabelWrapper from "../../controls/vue/Wrapper/LabelWrapper";
+import LabelWrapper from "../../controls/vue/wrapper/LabelWrapper";
 
 import AuthModal from "../components/AuthModal";
 import LoginLink from "../components/LoginLink";

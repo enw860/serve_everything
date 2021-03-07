@@ -86,7 +86,7 @@
 import WidgitDemo from "../../components/WidgitDemo.vue";
 import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";

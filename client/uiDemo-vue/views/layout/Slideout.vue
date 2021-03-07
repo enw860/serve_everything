@@ -106,7 +106,7 @@ import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 import Slideout from "../../../controls/vue/layout/Slideout.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import Button from "../../../controls/vue/infomational/Button.vue";
 import TextArea from "../../../controls/vue/inputs/TextArea.vue";

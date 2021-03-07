@@ -73,7 +73,7 @@ import store from "../store/store";
 import Logo from "./Logo.vue";
 import Slideout from "../../controls/vue/layout/Slideout.vue";
 import Button from "../../controls/vue/infomational/Button.vue";
-import Dropdown from "../../controls/vue/Wrapper/Dropdown.vue";
+import Dropdown from "../../controls/vue/wrapper/Dropdown.vue";
 
 import InformationalDC from "../views/informational";
 import InputsDC from "../views/inputs";

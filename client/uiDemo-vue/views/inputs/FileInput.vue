@@ -74,7 +74,7 @@ import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 import FileInput from "../../../controls/vue/inputs/FileInput.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import Toggle from "../../../controls/vue/inputs/Toggle.vue";
 import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vue";

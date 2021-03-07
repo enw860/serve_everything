@@ -97,7 +97,7 @@ import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 import Clock from "../../../controls/vue/infomational/Clock.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
 import Number from "../../../controls/vue/inputs/Number.vue";

@@ -89,10 +89,10 @@
 import WidgitDemo from "../../components/WidgitDemo.vue";
 import ControlDemoTemplate from "../ControlDemoTemplate.vue";
 
-import Dropdown from "../../../controls/vue/Wrapper/Dropdown.vue";
+import Dropdown from "../../../controls/vue/wrapper/Dropdown.vue";
 
 import DisplayText from "../../../controls/vue/infomational/DisplayText.vue";
-import LabelWrapper from "../../../controls/vue/Wrapper/LabelWrapper.vue";
+import LabelWrapper from "../../../controls/vue/wrapper/LabelWrapper.vue";
 import SingleSelect from "../../../controls/vue/inputs/SingleSelect.vue";
 import InputText from "../../../controls/vue/inputs/InputText.vue";
 import HTMLTextLoader from "../../../controls/vue/infomational/HTMLTextLoader.vue";
