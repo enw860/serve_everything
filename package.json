@@ -1,5 +1,5 @@
 {
-  "name": "multiple_chunks",
+  "name": "serve_everything",
   "version": "1.0.0",
   "description": "jointed services",
   "main": "./server/index.js",

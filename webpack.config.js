@@ -11,7 +11,8 @@ const outputDirectory = "dist";
 module.exports = {
   entry: {
     "main": "./client/main/index.js",
-    "auth": "./client/auth/index.js"
+    "auth": "./client/auth/index.js",
+    "sharkquila": "./client/sharkquila_ui_demo/client/index.js",
   },
   resolve: {
     extensions: [".vue", ".js", ".jsx", ".less", ".css"]
@@ -39,6 +40,13 @@ module.exports = {
       template: "./public/index.html",
       filename: "auth/index.html",
       chunks: ["auth"]
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Sharkquila UI',
+      favicon: "./public/favicon.ico",
+      template: "./public/index.html",
+      filename: "sharkquila/index.html",
+      chunks: ["sharkquila"]
     })
   ],
   optimization: {
