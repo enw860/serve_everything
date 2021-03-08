@@ -10,9 +10,7 @@ const outputDirectory = "dist";
 
 module.exports = {
   entry: {
-    main: "./client/main/index.js",
-    "uiDemo-vue": "./client/uiDemo-vue/index.js",
-    "uiDemo-react": "./client/uiDemo-react/index.js",
+    "main": "./client/main/index.js",
     "auth": "./client/auth/index.js"
   },
   resolve: {
@@ -34,20 +32,6 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html",
       chunks: ["main"]
-    }),
-    new HtmlWebpackPlugin({
-      title: 'UI demon (vue)',
-      favicon: "./public/favicon.ico",
-      template: "./public/index.html",
-      filename: "uiDemo-vue/index.html",
-      chunks: ["uiDemo-vue"]
-    }),
-    new HtmlWebpackPlugin({
-      title: 'UI demon (react)',
-      favicon: "./public/favicon.ico",
-      template: "./public/index.html",
-      filename: "uiDemo-react/index.html",
-      chunks: ["uiDemo-react"]
     }),
     new HtmlWebpackPlugin({
       title: 'Auth center',
