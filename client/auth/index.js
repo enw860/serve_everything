@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Main from './Main.vue';
 import store from './store/store'
-import SKPlugins from "sharkquila_ui_toolkits";
+import SKPlugins from "sharkquila_ui_toolkit";
 
 Vue.use(SKPlugins)
 
