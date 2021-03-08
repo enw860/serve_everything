@@ -1,6 +1,6 @@
 {
   "name": "serve_everything",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "jointed services",
   "main": "./server/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "devClient": "webpack serve --mode development --devtool inline-source-map --hot",
     "devServer": "nodemon ./server/index.js"
   },
-  "author": "Lionel Wu",
-  "license": "ISC",
+  "author": "Enhai Wu",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
