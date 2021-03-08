@@ -4,21 +4,21 @@
 		:errorMessage="logInErrorMessage"
 	>
 		<div slot="Inputs" class="VLayout AuthModal-inputs">
-			<LabelWrapper value="Username:" size="small">
-				<InputText
+			<l-label-wrapper value="Username:" size="small">
+				<l-input-text
 					slot="labelContent"
 					ref="_username"
 					placeholder="username"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 
-			<LabelWrapper value="Password:" size="small">
-				<Password
+			<l-label-wrapper value="Password:" size="small">
+				<l-input-password
 					slot="labelContent"
 					ref="_password"
 					placeholder="password"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 		</div>
 
 		<div slot="Links" class="HLayout flow-between AuthModal-links">
@@ -30,19 +30,13 @@
 			slot="Buttons"
 			class="HLayout flow-end AuthModal-buttons full-width"
 		>
-			<Button value="Sign in" btnStyle="primary" @click="signIn" />
+			<l-button value="Sign in" btnStyle="primary" @click="signIn" />
 		</div>
 	</AuthModal>
 </template>
 
 <script>
 import store from "../store/store";
-
-import InputText from "../../controls/vue/inputs/InputText";
-import Password from "../../controls/vue/inputs/Password";
-import Button from "../../controls/vue/infomational/Button";
-
-import LabelWrapper from "../../controls/vue/wrapper/LabelWrapper";
 
 import AuthModal from "../components/AuthModal";
 import SignupLink from "../components/SignupLink";
@@ -54,10 +48,6 @@ export default {
 		AuthModal,
 		SignupLink,
 		ResetPasswordLink,
-		InputText,
-		Password,
-		Button,
-		LabelWrapper,
 	},
 	data: function () {
 		return {};

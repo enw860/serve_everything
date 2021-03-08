@@ -1,5 +1,5 @@
 <template>
-	<Link
+	<l-link
 		:openInNewTab="false"
 		value="Forget password?"
 		size="small"
@@ -10,13 +10,9 @@
 <script>
 import store from "../store/store";
 
-import Link from "../../controls/vue/infomational/Link";
-
 export default {
 	name: "ResetPasswordLink",
-	components: {
-		Link,
-	},
+	components: {},
 	data: function () {
 		return {};
 	},

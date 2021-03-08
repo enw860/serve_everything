@@ -4,56 +4,56 @@
 		:errorMessage="s1ErrorMessage || s3ErrorMessage"
 	>
 		<div slot="Inputs" class="VLayout AuthModal-inputs">
-			<LabelWrapper value="Please enter your user name:" size="small">
-				<InputText
+			<l-label-wrapper value="Please enter your user name:" size="small">
+				<l-input-text
 					slot="labelContent"
 					ref="_username"
 					placeholder="username"
 					@blur="setUsername"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 
-			<LabelWrapper
+			<l-label-wrapper
 				value="Please paste secrete send to your email:"
 				size="small"
 				v-if="!!startStep2"
 			>
-				<InputText
+				<l-input-text
 					slot="labelContent"
 					ref="_secrete"
 					placeholder="secrete"
 					@blur="validateSecrete"
 					:error="s2ErrorMessage"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 
-			<LabelWrapper
+			<l-label-wrapper
 				value="New password:"
 				size="small"
 				v-if="!!startStep3"
 			>
-				<Password
+				<l-input-password
 					slot="labelContent"
 					ref="_password"
 					placeholder="password"
 					@blur="checkPassword"
 					:error="validatePasswordErrorMessage"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 
-			<LabelWrapper
+			<l-label-wrapper
 				value="Confirm your new password:"
 				size="small"
 				v-if="!!startStep3"
 			>
-				<Password
+				<l-input-password
 					slot="labelContent"
 					ref="_confirmed"
 					placeholder="password"
 					@blur="setConfirmedPassword"
 					:error="comfirmedPasswordErrorMessage"
 				/>
-			</LabelWrapper>
+			</l-label-wrapper>
 		</div>
 
 		<div slot="Links" class="HLayout flow-between AuthModal-links">
@@ -62,13 +62,13 @@
 		</div>
 
 		<div slot="Buttons" class="HLayout flow-between AuthModal-buttons">
-			<Button
+			<l-button
 				value="Send me secrete"
 				btnStyle="primary"
 				@click="sendSecrete"
 				:disabled="!username"
 			/>
-			<Button
+			<l-button
 				value="Submit"
 				btnStyle="primary"
 				@click="submit"
@@ -81,12 +81,6 @@
 <script>
 import store from "../store/store";
 
-import InputText from "../../controls/vue/inputs/InputText";
-import Password from "../../controls/vue/inputs/Password";
-import Button from "../../controls/vue/infomational/Button";
-
-import LabelWrapper from "../../controls/vue/wrapper/LabelWrapper";
-
 import AuthModal from "../components/AuthModal";
 import LoginLink from "../components/LoginLink";
 import SignupLink from "../components/SignupLink";
@@ -97,10 +91,6 @@ export default {
 		AuthModal,
 		SignupLink,
 		LoginLink,
-		InputText,
-		Password,
-		Button,
-		LabelWrapper,
 	},
 	data: function () {
 		return {

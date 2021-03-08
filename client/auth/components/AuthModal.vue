@@ -1,5 +1,5 @@
 <style lang="less">
-@import "../../controls/style/theme/theme.less";
+@import "../style/theme.less";
 
 .AuthModal {
 	width: 500px;
@@ -62,7 +62,7 @@
 <template>
 	<div class="AuthModal">
 		<div class="HLayout AuthModal-title">
-			<DisplayText :value="title" size="xxlarge" color="#ffffff" />
+			<l-text :value="title" size="xxlarge" color="#ffffff" />
 		</div>
 
 		<div class="VLayout AuthModal-main">
@@ -74,7 +74,7 @@
 					<div class="error-icon">
 						<i class="fas fa-exclamation-circle"></i>
 					</div>
-					<DisplayText
+					<l-text
 						:value="errorMessage"
 						color="#da1e28"
 						size="small"
@@ -92,13 +92,9 @@
 </template>
 
 <script>
-import DisplayText from "../../controls/vue/infomational/DisplayText";
-
 export default {
 	name: "AuthModal",
-	components: {
-		DisplayText,
-	},
+	components: {},
 	props: {
 		title: {
 			type: String,

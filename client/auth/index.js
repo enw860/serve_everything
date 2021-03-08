@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Main from './Main.vue';
 import store from './store/store'
-import "../controls/style/style.less";
+import SKPlugins from "sharkquila_ui_toolkits";
+
+Vue.use(SKPlugins)
 
 new Vue({
     store,

@@ -1,17 +1,18 @@
 <template>
-	<Link :openInNewTab="false" value="Log in" size="small" @click="toLogin" />
+	<l-link
+		:openInNewTab="false"
+		value="Log in"
+		size="small"
+		@click="toLogin"
+	/>
 </template>
 
 <script>
 import store from "../store/store";
 
-import Link from "../../controls/vue/infomational/Link";
-
 export default {
 	name: "LoginLink",
-	components: {
-		Link,
-	},
+	components: {},
 	data: function () {
 		return {};
 	},

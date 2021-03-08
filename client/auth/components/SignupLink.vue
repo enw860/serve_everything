@@ -1,5 +1,5 @@
 <template>
-	<Link
+	<l-link
 		:openInNewTab="false"
 		value="Sign up now!"
 		size="small"
@@ -10,13 +10,9 @@
 <script>
 import store from "../store/store";
 
-import Link from "../../controls/vue/infomational/Link";
-
 export default {
 	name: "SignupLink",
-	components: {
-		Link,
-	},
+	components: {},
 	data: function () {
 		return {};
 	},
