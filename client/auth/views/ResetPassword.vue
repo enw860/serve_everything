@@ -65,12 +65,14 @@
 			<l-button
 				value="Send me secrete"
 				btnStyle="primary"
+				size="large"
 				@click="sendSecrete"
 				:disabled="!username"
 			/>
 			<l-button
 				value="Submit"
 				btnStyle="primary"
+				size="large"
 				@click="submit"
 				:disabled="!enableSubmit"
 			/>
@@ -106,10 +108,8 @@ export default {
 	props: {},
 	computed: {
 		s1ErrorMessage: function () {
-			const {
-				result,
-				success,
-			} = this.$store.state.auth.resetPasswordStep1;
+			const { result, success } =
+				this.$store.state.auth.resetPasswordStep1;
 
 			if (success !== undefined) {
 				if (!success) {
@@ -122,10 +122,8 @@ export default {
 			return "";
 		},
 		s2ErrorMessage: function () {
-			const {
-				result,
-				success,
-			} = this.$store.state.auth.resetPasswordStep2;
+			const { result, success } =
+				this.$store.state.auth.resetPasswordStep2;
 
 			if (success !== undefined) {
 				if (!success) {
@@ -138,10 +136,8 @@ export default {
 			return "";
 		},
 		s3ErrorMessage: function () {
-			const {
-				result,
-				success,
-			} = this.$store.state.auth.resetPasswordStep3;
+			const { result, success } =
+				this.$store.state.auth.resetPasswordStep3;
 
 			if (success !== undefined) {
 				if (!success) {

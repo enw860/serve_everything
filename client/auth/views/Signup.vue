@@ -47,6 +47,7 @@
 			<l-button
 				value="Sign up"
 				btnStyle="primary"
+				size="large"
 				@click="signUp"
 				:disabled="disableBtn"
 			/>

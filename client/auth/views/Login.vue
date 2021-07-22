@@ -30,7 +30,12 @@
 			slot="Buttons"
 			class="HLayout flow-end AuthModal-buttons full-width"
 		>
-			<l-button value="Sign in" btnStyle="primary" @click="signIn" />
+			<l-button
+				value="Sign in"
+				btnStyle="primary"
+				size="large"
+				@click="signIn"
+			/>
 		</div>
 	</AuthModal>
 </template>

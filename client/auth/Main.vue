@@ -14,6 +14,7 @@
 <script>
 import store from "./store/store";
 
+import "./style/style.less";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import ResetPassword from "./views/ResetPassword";
